@@ -1,0 +1,1 @@
+TFA.AddWeaponSound("Crossbow.Reload", {"weapons/crossbow/bolt_load1.wav", "weapons/crossbow/bolt_load2.wav"})

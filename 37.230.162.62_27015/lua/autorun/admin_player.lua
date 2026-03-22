@@ -1,0 +1,2 @@
+player_manager.AddValidModel( "Admin Union",                     "models/player/garrysmod/hev_gmod.mdl" )
+list.Set( "PlayerOptionsModel",  "Admin Union",                  "models/player/garrysmod/hev_gmod.mdl" )

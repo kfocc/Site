@@ -1,0 +1,841 @@
+if not RTX then return end
+local has_module = util.IsBinaryModuleInstalled("icvar")
+if not has_module then return end
+
+if not RemixRenderCore then
+		include("darkrp_modules/rtx/cl_build_core.lua")
+end
+
+local convar_Enable = CreateClientConVar("rtx_prop_instancing", "1", true, false, "Enable static prop instancing")
+local convar_MaxInstances = CreateClientConVar("rtx_prop_instancing_max", "100", true, false, "Max instances per batch")
+local convar_Debug = CreateClientConVar("rtx_prop_instancing_debug", "0", true, false, "Debug instancing")
+
+-- Instance batches: [modelPath][materialName] = { matrices = {...}, colors = {...} }
+local instanceBatches = {}
+local batchStats = { models = 0, instances = 0, batches = 0 }
+local lastFrameStats = { models = 0, instances = 0, batches = 0 } -- Preserved for HUD display
+
+-- Clear batches each frame
+local function ClearBatches()
+    table.Empty(instanceBatches)
+    batchStats = { models = 0, instances = 0, batches = 0 }
+end
+
+-- Add a prop instance to the batch
+local function AddPropInstance(modelPath, matrix, meshData, color)
+    if not convar_Enable:GetBool() then return false end
+    if not modelPath or not matrix or not meshData then return false end
+
+    -- Initialize model batch
+    instanceBatches[modelPath] = instanceBatches[modelPath] or {}
+    local modelBatch = instanceBatches[modelPath]
+
+    -- Group by material for efficient batching
+    for _, meshInfo in ipairs(meshData.meshes) do
+        local matName = meshInfo.material and meshInfo.material:GetName() or "unknown"
+
+        modelBatch[matName] = modelBatch[matName] or {
+            material = meshInfo.material,
+            mesh = meshInfo.mesh,
+            matrices = {},
+            colors = {}
+        }
+
+        local batch = modelBatch[matName]
+
+        -- Check if batch is full
+        local maxInstances = convar_MaxInstances:GetInt()
+        if #batch.matrices >= maxInstances then
+            return false -- Batch full, caller should render directly
+        end
+
+        table.insert(batch.matrices, matrix)
+        table.insert(batch.colors, color or Color(255, 255, 255))
+
+        batchStats.instances = batchStats.instances + 1
+    end
+
+    return true -- Successfully batched
+end
+
+-- Render all batched instances
+local function RenderInstancedProps()
+    if not convar_Enable:GetBool() then return end
+
+    local drawCalls = 0
+
+    for modelPath, materialBatches in pairs(instanceBatches) do
+        batchStats.models = batchStats.models + 1
+
+        for matName, batch in pairs(materialBatches) do
+            if #batch.matrices > 0 then
+                batchStats.batches = batchStats.batches + 1
+
+                -- Render all instances in this batch
+                render.SetMaterial(batch.material)
+
+                for i = 1, #batch.matrices do
+                    local mat = batch.matrices[i]
+                    local col = batch.colors[i]
+
+                    if col then
+                        render.SetColorModulation(col.r / 255, col.g / 255, col.b / 255)
+                    end
+
+                    cam.PushModelMatrix(mat)
+                    batch.mesh:Draw()
+                    cam.PopModelMatrix()
+
+                    if col then
+                        render.SetColorModulation(1, 1, 1)
+                    end
+                end
+
+                drawCalls = drawCalls + 1
+            end
+        end
+    end
+
+    if convar_Debug:GetBool() then
+        print(string.format("[PropInstancing] %d models, %d instances, %d batches, %d draw calls",
+            batchStats.models, batchStats.instances, batchStats.batches, drawCalls))
+    end
+
+    -- Preserve stats for HUD display before clearing
+    lastFrameStats.models = batchStats.models
+    lastFrameStats.instances = batchStats.instances
+    lastFrameStats.batches = batchStats.batches
+
+    ClearBatches()
+end
+
+-- NOTE: Do NOT hook into render core here - the static prop renderer will call
+-- ClearBatches() at start and RenderInstancedProps() at end of its own hook
+
+-- Stats display
+if RemixRenderCore.RegisterStats then
+    RemixRenderCore.RegisterStats("PropInstancing", function()
+        if not convar_Enable:GetBool() then return "Instancing: OFF" end
+        return string.format("Instancing: %d models, %d instances -> %d batches",
+            lastFrameStats.models, lastFrameStats.instances, lastFrameStats.batches)
+    end)
+end
+
+print("[Prop Instancing] Loaded - reduces draw calls for repeated props")
+
+local PropInstancing = {
+    AddPropInstance = AddPropInstance,
+    RenderInstancedProps = RenderInstancedProps,
+    ClearBatches = ClearBatches
+}
+
+
+local convar_Enable = CreateClientConVar("rtx_spr_enable", "1", true, false, "Enable custom rendering of static props")
+local convar_Debug = CreateClientConVar("rtx_spr_debug", "0", true, false, "Enable debug prints for static prop renderer")
+local convar_RenderDistance = CreateClientConVar("rtx_spr_distance", "10000", true, false, "Maximum distance to render static props (0 = no limit)")
+local convar_Whitelist = CreateClientConVar("rtx_spr_mat_whitelist", "", true, false, "Comma-separated material name substrings to include")
+local convar_Blacklist = CreateClientConVar("rtx_spr_mat_blacklist", "", true, false, "Comma-separated material name substrings to exclude")
+local convar_UsePVS = CreateClientConVar("rtx_spr_use_pvs", "1", true, false, "Enable PVS culling for static props")
+local convar_PVSSafetyDistance = CreateClientConVar("rtx_spr_pvs_safety_distance", "0", true, false, "Distance within which PVS culling is disabled (prevents close-range culling bugs)")
+local convar_UseLOD = CreateClientConVar("rtx_spr_use_lod", "1", true, false, "Enable LOD culling for complex props at distance")
+local convar_LODDistance = CreateClientConVar("rtx_spr_lod_distance", "5000", true, false, "Distance at which LOD culling starts")
+local convar_LODComplexity = CreateClientConVar("rtx_spr_lod_complexity", "5000", true, false, "Vertex count threshold for LOD culling")
+
+-- Per-map PVS safety distance persistence
+local PVS_SAFETY_FILE = "rtx_pvs_safety_distances.txt"
+
+local function GetCurrentMapName()
+    return game.GetMap() or "unknown"
+end
+
+local function LoadPerMapPVSSettings()
+    if not file.Exists(PVS_SAFETY_FILE, "DATA") then
+        return {}
+    end
+
+    local json = file.Read(PVS_SAFETY_FILE, "DATA")
+    if not json then return {} end
+
+    local ok, data = pcall(util.JSONToTable, json)
+    if not ok or not data then return {} end
+
+    return data
+end
+
+local function SavePerMapPVSSettings(mapSettings)
+    local json = util.TableToJSON(mapSettings, true)
+    if json then
+        file.Write(PVS_SAFETY_FILE, json)
+    end
+end
+
+local function ApplyMapPVSSettings()
+    local mapName = GetCurrentMapName()
+    local settings = LoadPerMapPVSSettings()
+
+    if settings[mapName] and settings[mapName].pvs_safety_distance then
+        local savedDistance = settings[mapName].pvs_safety_distance
+        RunConsoleCommand("rtx_spr_pvs_safety_distance", tostring(savedDistance))
+    else
+        -- No saved value for this map, reset to default (0)
+        RunConsoleCommand("rtx_spr_pvs_safety_distance", "0")
+    end
+end
+
+local function SaveCurrentMapPVSSettings()
+    local mapName = GetCurrentMapName()
+    local currentDistance = convar_PVSSafetyDistance:GetFloat()
+
+    local settings = LoadPerMapPVSSettings()
+    settings[mapName] = settings[mapName] or {}
+    settings[mapName].pvs_safety_distance = currentDistance
+
+    SavePerMapPVSSettings(settings)
+end
+
+-- Apply saved settings when map loads
+hook.Add("InitPostEntity", "RTX_SPR_LoadMapSettings", function()
+    timer.Simple(0.1, ApplyMapPVSSettings)
+end)
+
+-- Save settings when convar changes
+cvars.AddChangeCallback("rtx_spr_pvs_safety_distance", function(convar, oldValue, newValue)
+    -- Only save if the value actually changed and we're in a map
+    if oldValue ~= newValue and GetCurrentMapName() ~= "unknown" then
+        timer.Simple(0.5, SaveCurrentMapPVSSettings)
+    end
+end, "RTX_SPR_SavePVSDistance")
+
+-- Global state
+local isDataReady = false
+local isCachingInProgress = false
+local cachedStaticProps = {}
+local meshCache = {}  -- Maps model path to IMesh objects
+local lastDebugFrame = 0
+local bDrawingSkybox = false
+local skyboxProps = {}
+local worldProps = {}
+local sprStats = { rendered = 0, total = 0, distance = 0, lod = 0 }
+local sprBuildStats = { startTime = 0, endTime = 0, built = 0, active = false }
+-- Expose build state for progress tracking
+if RemixRemixRenderCore then RemixRemixRenderCore._sprBuildState = sprBuildStats end
+
+local function IsPVSValid(pvs)
+    if not pvs then return false end
+    for _, v in pairs(pvs) do
+        if v then return true end
+    end
+    return false
+end
+
+-- Debug helper function
+local DebugPrint = (RemixRenderCore.CreateDebugPrint)
+    and RemixRenderCore.CreateDebugPrint("Static Render Debug", convar_Debug)
+    or function(...)
+        if convar_Debug:GetBool() then
+            print("[Static Render Debug]", ...)
+        end
+    end
+
+-- Use RemixRenderCore material cache directly
+local function GetCachedMaterial(matName)
+    return (RemixRenderCore.GetMaterial) and RemixRenderCore.GetMaterial(matName) or Material(matName or "debug/debugwhite")
+end
+
+-- Get mesh data directly using GetModelMeshes
+local function GetModelMeshes(modelPath, skin)
+    -- Load the model if not already loaded
+    if not util.IsModelLoaded(modelPath) then
+        util.PrecacheModel(modelPath)
+    end
+
+    -- Try to get mesh data directly with skin support
+    return util.GetModelMeshes(modelPath, 0, 0, skin or 0)
+end
+
+local function IsMaterialAllowedName(matName)
+    if not matName then return false end
+    if RemixRenderCore.IsMaterialAllowed then
+        return RemixRenderCore.IsMaterialAllowed(matName, convar_Whitelist:GetString(), convar_Blacklist:GetString())
+    end
+    -- Fallback: allow by default if core helper missing
+    return true
+end
+
+-- Process a static prop and prepare rendering data
+local function ProcessStaticProp(propData)
+    local modelPath = propData.PropType
+    if not modelPath or modelPath == "" then
+        DebugPrint("Static prop has no model path")
+        return nil
+    end
+
+    -- Create the prop data structure
+    local prop = {
+        model = modelPath,
+        origin = propData.Origin,
+        angles = propData.Angles,
+        skin = propData.Skin or 0,
+        color = propData.DiffuseModulation or Color(255, 255, 255),
+        vertexCount = 0 -- Will be set during mesh processing
+    }
+
+    -- Precompute transform matrix (static props don't move)
+    local matrix = Matrix()
+    matrix:Translate(prop.origin)
+    matrix:Rotate(prop.angles)
+    prop.matrix = matrix
+
+    -- Check if this is a skybox prop
+    local isSkyboxProp = false
+    if NikNaks and NikNaks.CurrentMap and NikNaks.CurrentMap:HasSkyBox() then
+        local skyPos = NikNaks.CurrentMap:GetSkyBoxPos()
+        local skyMinBounds, skyMaxBounds = NikNaks.CurrentMap:GetSkyboxSize()
+
+        -- Check if the prop is within skybox bounds
+        if skyMinBounds and skyMaxBounds and propData.Origin then
+            isSkyboxProp = propData.Origin:WithinAABox(skyMinBounds, skyMaxBounds)
+        end
+    end
+
+    -- Store this information in the prop data
+    prop.isSkybox = isSkyboxProp
+    -- Cache BSP clusters for PVS checks (multi-cluster for better precision)
+    -- Use AABB to find all clusters this prop touches
+    if NikNaks and NikNaks.CurrentMap and meshCache[cacheKey] and not meshCache[cacheKey].error then
+        local meshData = meshCache[cacheKey]
+        if meshData.mins and meshData.maxs then
+            -- Transform bounds to world space
+            local corners = {
+                prop.matrix * meshData.mins,
+                prop.matrix * meshData.maxs,
+                prop.matrix * Vector(meshData.mins.x, meshData.mins.y, meshData.maxs.z),
+                prop.matrix * Vector(meshData.mins.x, meshData.maxs.y, meshData.mins.z),
+                prop.matrix * Vector(meshData.maxs.x, meshData.mins.y, meshData.mins.z),
+                prop.matrix * Vector(meshData.maxs.x, meshData.maxs.y, meshData.mins.z),
+                prop.matrix * Vector(meshData.maxs.x, meshData.mins.y, meshData.maxs.z),
+                prop.matrix * Vector(meshData.mins.x, meshData.maxs.y, meshData.maxs.z),
+            }
+            -- Find AABB of transformed corners
+            local worldMins = Vector(math.huge, math.huge, math.huge)
+            local worldMaxs = Vector(-math.huge, -math.huge, -math.huge)
+            for _, corner in ipairs(corners) do
+                if corner.x < worldMins.x then worldMins.x = corner.x end
+                if corner.y < worldMins.y then worldMins.y = corner.y end
+                if corner.z < worldMins.z then worldMins.z = corner.z end
+                if corner.x > worldMaxs.x then worldMaxs.x = corner.x end
+                if corner.y > worldMaxs.y then worldMaxs.y = corner.y end
+                if corner.z > worldMaxs.z then worldMaxs.z = corner.z end
+            end
+
+            -- Get all leaves that intersect this AABB
+            prop.clusters = {}
+            if NikNaks.CurrentMap.AABBInLeafs then
+                local ok, leaves = pcall(function() return NikNaks.CurrentMap:AABBInLeafs(0, worldMins, worldMaxs) end)
+                if ok and leaves then
+                    for _, leaf in ipairs(leaves) do
+                        local cl = leaf.GetCluster and leaf:GetCluster() or -1
+                        if cl and cl >= 0 then
+                            prop.clusters[cl] = true
+                        end
+                    end
+                end
+            end
+            -- Fallback to origin-based cluster if multi-cluster failed
+            if not next(prop.clusters) and NikNaks.CurrentMap.ClusterFromPoint then
+                local cl = NikNaks.CurrentMap:ClusterFromPoint(prop.origin) or -1
+                if cl >= 0 then
+                    prop.clusters[cl] = true
+                end
+            end
+        end
+    else
+        -- Fallback: single cluster from origin
+        prop.clusters = {}
+        if NikNaks and NikNaks.CurrentMap and NikNaks.CurrentMap.ClusterFromPoint then
+            local cl = NikNaks.CurrentMap:ClusterFromPoint(prop.origin) or -1
+            if cl >= 0 then
+                prop.clusters[cl] = true
+            end
+        end
+    end
+
+    -- Check if we already cached this model's mesh
+    local cacheKey = modelPath .. "_skin" .. prop.skin
+    if not meshCache[cacheKey] then
+        -- Get the mesh data with skin support
+        local meshData = GetModelMeshes(modelPath, prop.skin)
+
+        if not meshData or #meshData == 0 then
+            DebugPrint("Failed to get mesh data for:", modelPath)
+            -- Store an empty entry to avoid repeatedly trying to process it
+            meshCache[cacheKey] = {
+                meshes = nil,
+                error = true
+            }
+            return nil
+        end
+
+        -- Process mesh groups and maintain their material relationships
+        local processedMeshes = {}
+        local mins = Vector(math.huge, math.huge, math.huge)
+        local maxs = Vector(-math.huge, -math.huge, -math.huge)
+        local totalVertexCount = 0
+
+        -- Process each mesh group
+        for _, group in ipairs(meshData) do
+            if group.triangles and #group.triangles > 0 then
+                local material = group.material or "models/debug/debugwhite"
+                if material and not IsMaterialAllowedName(material) then
+                    continue
+                end
+
+                -- Create or get cached material
+                local mat = GetCachedMaterial(material)
+
+                -- Validate vertices for this group
+                local valid = true
+                if RemixRenderCore.ValidateVertex then
+                    for _, vert in ipairs(group.triangles) do
+                        if not RemixRenderCore.ValidateVertex(vert.pos) then
+                            valid = false
+                            break
+                        end
+                    end
+                end
+                if not valid then
+                    continue
+                end
+
+                -- Create mesh for this group
+                local mesh = Mesh()
+                mesh:BuildFromTriangles(group.triangles)
+
+                -- Add to processed meshes
+                table.insert(processedMeshes, {
+                    mesh = mesh,
+                    material = mat
+                })
+
+                if RemixRenderCore.TrackMesh then
+                    RemixRenderCore.TrackMesh(mesh)
+                end
+
+                -- Update bounds and vertex count
+                totalVertexCount = totalVertexCount + #group.triangles
+                for _, vert in ipairs(group.triangles) do
+                    if vert.pos.x < mins.x then mins.x = vert.pos.x end
+                    if vert.pos.y < mins.y then mins.y = vert.pos.y end
+                    if vert.pos.z < mins.z then mins.z = vert.pos.z end
+                    if vert.pos.x > maxs.x then maxs.x = vert.pos.x end
+                    if vert.pos.y > maxs.y then maxs.y = vert.pos.y end
+                    if vert.pos.z > maxs.z then maxs.z = vert.pos.z end
+                end
+            end
+        end
+
+        if #processedMeshes > 0 then
+            -- Store in the cache
+            meshCache[cacheKey] = {
+                meshes = processedMeshes,
+                mins = mins,
+                maxs = maxs,
+                vertexCount = totalVertexCount
+            }
+
+            DebugPrint("Cached mesh for model:", modelPath, "skin:", prop.skin, "#mesh groups:", #processedMeshes, "vertices:", totalVertexCount)
+        else
+            DebugPrint("No valid mesh groups found for model:", modelPath)
+            meshCache[cacheKey] = {
+                meshes = nil,
+                error = true
+            }
+            return nil
+        end
+    elseif meshCache[cacheKey].error then
+        return nil  -- Skip previously failed models
+    end
+
+    -- Link to the cached mesh data
+    prop.cachedMesh = meshCache[cacheKey]
+    prop.vertexCount = meshCache[cacheKey].vertexCount or 0
+    return prop
+end
+
+-- Separate skybox props from world props
+local function SeparateSkyboxProps()
+    skyboxProps = {}
+    worldProps = {}
+
+    for _, prop in ipairs(cachedStaticProps) do
+        if prop.isSkybox then
+            table.insert(skyboxProps, prop)
+        else
+            table.insert(worldProps, prop)
+        end
+    end
+
+    print(string.format("[Static Render] Separated props: %d world props, %d skybox props",
+                        #worldProps, #skyboxProps))
+end
+
+-- Cache static props from NikNaks data
+local function CacheMapStaticProps()
+    if isCachingInProgress then return end
+
+    DebugPrint("Checking NikNaks availability...")
+
+    if not NikNaks then
+        DebugPrint("NikNaks module not found!")
+        timer.Simple(1, CacheMapStaticProps)
+        return
+    end
+
+    if not NikNaks.CurrentMap then
+        DebugPrint("NikNaks.CurrentMap not available yet.")
+        timer.Simple(1, CacheMapStaticProps)
+        return
+    end
+
+    if not NikNaks.CurrentMap.GetStaticProps then
+        DebugPrint("NikNaks.CurrentMap.GetStaticProps function doesn't exist!")
+        DebugPrint("Available functions:", table.concat(table.GetKeys(NikNaks.CurrentMap), ", "))
+        timer.Simple(1, CacheMapStaticProps)
+        return
+    end
+
+    isCachingInProgress = true
+    print("[Static Render] Starting static prop data caching...")
+    sprBuildStats.startTime = SysTime()
+    sprBuildStats.endTime = 0
+    sprBuildStats.built = 0
+    sprBuildStats.active = true
+
+    -- Clear previous caches
+    table.Empty(cachedStaticProps)
+
+    -- Get static props data from NikNaks
+    local okProps, staticPropsRaw = pcall(function() return NikNaks.CurrentMap:GetStaticProps() end)
+    if not okProps then
+        print("[Static Render] GetStaticProps() errored")
+        isCachingInProgress = false
+        sprBuildStats.active = false
+        isDataReady = true
+        return
+    end
+    if not staticPropsRaw or type(staticPropsRaw) ~= "table" then
+        print("[Static Render] GetStaticProps() returned invalid data:", staticPropsRaw)
+        isCachingInProgress = false
+        sprBuildStats.active = false
+        isDataReady = true -- Mark as ready to prevent retries
+        return
+    end
+
+    -- Debug output
+    print("[Static Render] Retrieved", #staticPropsRaw, "static props")
+
+    -- Coroutine-driven processing within a per-frame budget
+    local processedSoFar = 0
+    local skippedSoFar = 0
+    local co
+    co = coroutine.create(function()
+        local startTime = SysTime()
+        local frameBudget = 0.003
+        for i = 1, #staticPropsRaw do
+            local propData = staticPropsRaw[i]
+            local prop = ProcessStaticProp(propData)
+            if prop then
+                table.insert(cachedStaticProps, prop)
+                processedSoFar = processedSoFar + 1
+                sprBuildStats.built = sprBuildStats.built + 1
+            else
+                skippedSoFar = skippedSoFar + 1
+            end
+            if SysTime() - startTime > frameBudget then
+                coroutine.yield()
+                local spent = SysTime() - startTime
+                if RemixRenderCore.UpdateFrameBudget then
+                    frameBudget = RemixRenderCore.UpdateFrameBudget(spent, frameBudget)
+                else
+                    if spent > frameBudget * 1.2 then
+                        frameBudget = math.max(0.001, frameBudget * 0.95)
+                    elseif spent < frameBudget * 0.8 then
+                        frameBudget = math.min(0.006, frameBudget * 1.05)
+                    end
+                end
+                startTime = SysTime()
+            end
+        end
+        SeparateSkyboxProps()
+        isDataReady = true
+        isCachingInProgress = false
+        print(string.format("[Static Render] Caching complete. %d static props processed, %d skipped.",
+                           processedSoFar, skippedSoFar))
+        sprStats.total = processedSoFar
+        sprBuildStats.endTime = SysTime()
+        sprBuildStats.active = false
+    end)
+    -- Schedule coroutine advancement via RemixRenderCore job system to reduce timer overhead
+    local jobId = "StaticPropsCacheJob"
+    RemixRenderCore.ScheduleJob(jobId, function()
+        if not co or coroutine.status(co) == "dead" then
+            isCachingInProgress = false
+            sprBuildStats.active = false
+            return false
+        end
+
+        local ok, err = coroutine.resume(co)
+        if not ok then
+            ErrorNoHalt("[Static Render] Cache coroutine error: " .. tostring(err) .. "\n")
+            isCachingInProgress = false
+            sprBuildStats.active = false
+            sprBuildStats.built = 0
+            isDataReady = true -- Mark as ready to prevent infinite retries
+            return false
+        end
+
+        local isDead = coroutine.status(co) == "dead"
+        if isDead then
+            isCachingInProgress = false
+            sprBuildStats.active = false
+        end
+        return not isDead
+    end)
+end
+
+-- Skybox detection hooks
+RemixRenderCore.Register("PreDrawSkyBox", "RTXStaticPropsSkyboxDetection", function()
+    bDrawingSkybox = true
+end)
+
+RemixRenderCore.Register("PostDrawSkyBox", "RTXStaticPropsSkyboxDetection", function()
+    bDrawingSkybox = false
+end)
+
+-- Hook to initiate caching when the map is ready
+RemixRenderCore.Register("InitPostEntity", "CustomStaticRender_InitCache", function()
+    -- Delay slightly to ensure NikNaks has loaded its data
+    timer.Simple(3, CacheMapStaticProps)
+end)
+
+-- Clean up caches on disconnect/map change
+RemixRenderCore.Register("ShutDown", "CustomStaticRender_Cleanup", function()
+    print("[Static Render] Cleaning up caches.")
+    -- Rely on core to destroy tracked meshes
+    if RemixRenderCore.DestroyTrackedMeshes then
+        RemixRenderCore.DestroyTrackedMeshes()
+    end
+    table.Empty(cachedStaticProps)
+    table.Empty(skyboxProps)
+    table.Empty(worldProps)
+    table.Empty(meshCache)
+
+    isDataReady = false
+    isCachingInProgress = false
+end)
+
+-- Render the static props
+RemixRenderCore.Register("PreDrawOpaqueRenderables", "CustomStaticRender_DrawProps", function(bDrawingDepth, bDrawingSkybox_param)
+    if not convar_Enable:GetBool() or not isDataReady or isCachingInProgress then
+        return
+    end
+
+    -- Skip rendering static props in offscreen RTs (e.g., rear-view camera with dynamic_only filter)
+    if RemixRenderCore.IsOffscreen and RemixRenderCore.IsOffscreen() then
+        return
+    end
+
+    -- Clear instancing batches at start of frame
+    if PropInstancing and PropInstancing.ClearBatches then
+        PropInstancing.ClearBatches()
+    end
+
+    -- Choose which prop list to render based on skybox state
+    local propsToRender = bDrawingSkybox and skyboxProps or worldProps
+
+    if #propsToRender == 0 then
+        if convar_Debug:GetBool() then
+            local frameCount = FrameNumber()
+            if lastDebugFrame ~= frameCount then
+                lastDebugFrame = frameCount
+            end
+        end
+        return
+    end
+
+    local renderedProps = 0
+    local skippedProps = 0
+    local distanceSkipped = 0
+    local lodSkipped = 0
+
+    -- Get player eye position for PVS and distance checks (more stable while jumping)
+    local ply = LocalPlayer and LocalPlayer() or nil
+    local playerPos = ply and ((ply.EyePos and ply:EyePos()) or (ply.GetPos and ply:GetPos())) or nil
+    -- Use centralized PVS from RemixRenderCore
+    local pvs = nil
+    if convar_UsePVS:GetBool() and RemixRenderCore.GetPVS then
+        pvs = RemixRenderCore.GetPVS(playerPos)
+    end
+    local maxDistance = convar_RenderDistance:GetFloat()
+    local useDistanceLimit = (maxDistance > 0)
+    local useLOD = convar_UseLOD:GetBool()
+    local lodDistance = convar_LODDistance:GetFloat()
+    local lodComplexity = convar_LODComplexity:GetFloat()
+
+    -- Debug stats only calculated once per frame
+    local shouldDebug = convar_Debug:GetBool()
+    local frameCount = FrameNumber()
+    local isNewFrame = lastDebugFrame ~= frameCount
+
+    if shouldDebug and isNewFrame then
+        DebugPrint("Attempting to render", #propsToRender, "props in " .. (bDrawingSkybox and "skybox" or "world"),
+                  useDistanceLimit and ("with distance limit " .. maxDistance) or "with no distance limit")
+        lastDebugFrame = frameCount
+    end
+
+    for _, prop in ipairs(propsToRender) do
+        local meshData = prop.cachedMesh
+        if not meshData or not meshData.meshes then
+            skippedProps = skippedProps + 1
+            continue
+        end
+        -- PVS culling for world props only (skip skybox props)
+        if not bDrawingSkybox and pvs and prop.clusters and next(prop.clusters) then
+            -- Safety distance check: always render props very close to player
+            local safetyDist = convar_PVSSafetyDistance:GetFloat()
+            local withinSafetyDistance = false
+            if safetyDist > 0 and playerPos then
+                local distSqr = prop.origin:DistToSqr(playerPos)
+                withinSafetyDistance = distSqr < (safetyDist * safetyDist)
+            end
+
+            if not withinSafetyDistance then
+                -- Check if any cluster is visible
+                local anyVisible = false
+                for cl in pairs(prop.clusters) do
+                    if pvs[cl] then
+                        anyVisible = true
+                        break
+                    end
+                end
+                if not anyVisible then
+                    skippedProps = skippedProps + 1
+                    continue
+                end
+            end
+        end
+        if useDistanceLimit and RemixRenderCore.ShouldCullByDistance and RemixRenderCore.ShouldCullByDistance(prop.origin, playerPos, maxDistance) then
+            distanceSkipped = distanceSkipped + 1
+            continue
+        end
+        -- LOD culling: skip complex props at medium distance
+        if useLOD and not bDrawingSkybox and playerPos and prop.vertexCount > lodComplexity then
+            local distSqr = prop.origin:DistToSqr(playerPos)
+            if distSqr > (lodDistance * lodDistance) then
+                lodSkipped = lodSkipped + 1
+                continue
+            end
+        end
+
+        -- Try to batch with instancing system first
+        local batched = false
+        if PropInstancing and PropInstancing.AddPropInstance then
+            batched = PropInstancing.AddPropInstance(prop.model, prop.matrix, meshData, prop.color)
+        end
+
+        -- Fallback: render directly if batch is full or instancing disabled
+        if not batched then
+            for _, meshInfo in ipairs(meshData.meshes) do
+                if meshInfo.mesh and meshInfo.material then
+                    RemixRenderCore.Submit({
+                        material = meshInfo.material,
+                        mesh = meshInfo.mesh,
+                        matrix = prop.matrix,
+                        translucent = false,
+                        color = prop.color
+                    })
+                end
+            end
+        end
+        renderedProps = renderedProps + 1
+    end
+
+    -- Render all batched instances at the end
+    if PropInstancing and PropInstancing.RenderInstancedProps then
+        PropInstancing.RenderInstancedProps()
+    end
+
+    sprStats.rendered = renderedProps
+    sprStats.distance = distanceSkipped
+    sprStats.skipped = skippedProps
+    sprStats.lod = lodSkipped
+
+    -- Debug output
+    if shouldDebug and isNewFrame then
+        if useDistanceLimit or useLOD then
+            DebugPrint("Rendered", renderedProps, "props in " .. (bDrawingSkybox and "skybox" or "world"),
+                      skippedProps, "skipped due to errors,",
+                      distanceSkipped, "skipped due to distance,",
+                      lodSkipped, "skipped due to LOD")
+        else
+            DebugPrint("Rendered", renderedProps, "props in " .. (bDrawingSkybox and "skybox" or "world"),
+                      skippedProps, "skipped")
+        end
+    end
+end)
+
+-- Disable engine props
+--RunConsoleCommand("r_drawstaticprops", "0")
+
+print("[Custom Static Renderer] Loaded.")
+
+-- Stats provider
+RemixRenderCore.RegisterStats("StaticProps", function()
+    local built = sprBuildStats.built or 0
+    local t = (sprBuildStats.endTime > 0 and sprBuildStats.endTime or SysTime()) - (sprBuildStats.startTime or 0)
+    local rate = (t > 0) and (built / t) or 0
+    return string.format("Static props: %d/%d (-E:%d, -D:%d, -L:%d) | build: %.2fs, %.1f/s", sprStats.rendered or 0, sprStats.total or 0, sprStats.skipped or 0, sprStats.distance or 0, sprStats.lod or 0, t, rate)
+end)
+
+-- Rebuild sink and debounced cvar watchers
+RemixRenderCore.RegisterRebuildSink("StaticPropsRebuild", function(token, reason)
+    -- Best-effort: clear current caches and rebuild
+    isDataReady = false
+    isCachingInProgress = false
+    if RemixRenderCore.DestroyTrackedMeshes then
+        RemixRenderCore.DestroyTrackedMeshes()
+    end
+    table.Empty(cachedStaticProps)
+    table.Empty(skyboxProps)
+    table.Empty(worldProps)
+    table.Empty(meshCache)
+    timer.Simple(0.1, CacheMapStaticProps)
+end)
+
+local function DebounceRebuildOnCvar(name)
+    cvars.AddChangeCallback(name, function()
+        if RemixRenderCore.RequestRebuild then
+            RemixRenderCore.RequestRebuild(name)
+        end
+    end, "StaticPropsRebuild-" .. name)
+end
+
+DebounceRebuildOnCvar("rtx_spr_mat_whitelist")
+DebounceRebuildOnCvar("rtx_spr_mat_blacklist")
+DebounceRebuildOnCvar("rtx_spr_distance")
+
+concommand.Add("rtx_rebuild_static_props", function()
+    print("[Static Render] Manually reloading cache...")
+    isDataReady = false
+    isCachingInProgress = false
+
+    if RemixRenderCore.DestroyTrackedMeshes then
+        RemixRenderCore.DestroyTrackedMeshes()
+    end
+    table.Empty(cachedStaticProps)
+    table.Empty(skyboxProps)
+    table.Empty(worldProps)
+    table.Empty(meshCache)
+
+    timer.Simple(0.1, CacheMapStaticProps)
+end)

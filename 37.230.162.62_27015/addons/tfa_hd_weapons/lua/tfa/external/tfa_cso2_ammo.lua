@@ -1,0 +1,1 @@
+TFA.AddAmmo( "cso2_40mm", "40mm Grenades" )
