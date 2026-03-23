@@ -1,0 +1,2817 @@
+Ñòðóêòóðà ïàïîê òîìà Íîâûé òîì
+Ñåðèéíûé íîìåð òîìà: 38C1-CDB1
+F:.
+¦   IGS_Test_RS (1).lua
+¦   IGS_Test_RS.lua
+¦   repomix-output.xml
+¦   Startup.lua
+¦   tfa_dev_tools (1).lua
+¦   tfa_dev_tools (10).lua
+¦   tfa_dev_tools (2).lua
+¦   tfa_dev_tools (3).lua
+¦   tfa_dev_tools (4).lua
+¦   tfa_dev_tools (5).lua
+¦   tfa_dev_tools (6).lua
+¦   tfa_dev_tools (7).lua
+¦   tfa_dev_tools (8).lua
+¦   tfa_dev_tools (9).lua
+¦   tfa_dev_tools.lua
+¦   tree.txt
+¦   
++---addons
+¦   +---acrashscreen
+¦   ¦   L---lua
+¦   ¦       +---acrashscreen
+¦   ¦       ¦   ¦   cl_config.lua
+¦   ¦       ¦   ¦   sh_start.lua
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   L---incl
+¦   ¦       ¦           cl_main.lua
+¦   ¦       ¦           cl_misc.lua
+¦   ¦       ¦           cl_web.lua
+¦   ¦       ¦           
+¦   ¦       L---autorun
+¦   ¦               acrashscreen.lua
+¦   ¦               
+¦   +---additional_tools
+¦   ¦   L---lua
+¦   ¦       +---advdupe2
+¦   ¦       ¦       cl_file.lua
+¦   ¦       ¦       cl_ghost.lua
+¦   ¦       ¦       file_browser.lua
+¦   ¦       ¦       sh_codec.lua
+¦   ¦       ¦       
+¦   ¦       +---autorun
+¦   ¦       ¦   ¦   init_improvedstacker.lua
+¦   ¦       ¦   ¦   netstream.lua
+¦   ¦       ¦   ¦   sh_mateditor.lua
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   L---client
+¦   ¦       ¦           advdupe2_cl_init.lua
+¦   ¦       ¦           
+¦   ¦       +---improvedstacker
+¦   ¦       ¦       improvedstacker.lua
+¦   ¦       ¦       localify.lua
+¦   ¦       ¦       localization.lua
+¦   ¦       ¦       
+¦   ¦       +---vgui
+¦   ¦       ¦       stackercontrolpresets (1).lua
+¦   ¦       ¦       stackercontrolpresets.lua
+¦   ¦       ¦       stackerdnumslider (1).lua
+¦   ¦       ¦       stackerdnumslider.lua
+¦   ¦       ¦       stackerpreseteditor (1).lua
+¦   ¦       ¦       stackerpreseteditor.lua
+¦   ¦       ¦       
+¦   ¦       L---weapons
+¦   ¦           L---gmod_tool
+¦   ¦               L---stools
+¦   ¦                       advdupe2.lua
+¦   ¦                       advmat.lua
+¦   ¦                       stacker_improved.lua
+¦   ¦                       
+¦   +---cats
+¦   ¦   L---lua
+¦   ¦       +---autorun
+¦   ¦       ¦       cats-load.lua
+¦   ¦       ¦       
+¦   ¦       +---cats
+¦   ¦       ¦       client.lua
+¦   ¦       ¦       pon.lua
+¦   ¦       ¦       shared.lua
+¦   ¦       ¦       
+¦   ¦       L---utime
+¦   ¦               sh_utime.lua
+¦   ¦               
+¦   +---chess
+¦   ¦   L---lua
+¦   ¦       +---autorun
+¦   ¦       ¦       sh_chess.lua
+¦   ¦       ¦       
+¦   ¦       +---chess
+¦   ¦       ¦       cl_dermaboard.lua
+¦   ¦       ¦       sh_player_ext.lua
+¦   ¦       ¦       
+¦   ¦       +---entities
+¦   ¦       ¦       ent_chess_board.lua
+¦   ¦       ¦       ent_draughts_board.lua
+¦   ¦       ¦       
+¦   ¦       L---weapons
+¦   ¦               chess_admin_tool.lua
+¦   ¦               
+¦   +---custom_libs
+¦   ¦   L---lua
+¦   ¦       +---autorun
+¦   ¦       ¦   L---client
+¦   ¦       ¦           animations_tick.lua
+¦   ¦       ¦           glitch.lua
+¦   ¦       ¦           netvars.lua
+¦   ¦       ¦           
+¦   ¦       +---entities
+¦   ¦       ¦       base_debloat.lua
+¦   ¦       ¦       
+¦   ¦       +---includes
+¦   ¦       ¦   ¦   init.lua
+¦   ¦       ¦   ¦   lib_init.lua
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   +---extensions
+¦   ¦       ¦   ¦       net.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   L---lib
+¦   ¦       ¦       ¦   bib.lua
+¦   ¦       ¦       ¦   color.lua
+¦   ¦       ¦       ¦   entity.lua
+¦   ¦       ¦       ¦   hook.lua
+¦   ¦       ¦       ¦   math.lua
+¦   ¦       ¦       ¦   md.lua
+¦   ¦       ¦       ¦   netstream.lua
+¦   ¦       ¦       ¦   niknaks.lua
+¦   ¦       ¦       ¦   occlusion.lua
+¦   ¦       ¦       ¦   player.lua
+¦   ¦       ¦       ¦   pon.lua
+¦   ¦       ¦       ¦   promise.lua
+¦   ¦       ¦       ¦   rndx (1).lua
+¦   ¦       ¦       ¦   rndx.lua
+¦   ¦       ¦       ¦   sfs.lua
+¦   ¦       ¦       ¦   stack.lua
+¦   ¦       ¦       ¦   string.lua
+¦   ¦       ¦       ¦   team.lua
+¦   ¦       ¦       ¦   trie.lua
+¦   ¦       ¦       ¦   union_init_sh.lua
+¦   ¦       ¦       ¦   utf8.lua
+¦   ¦       ¦       ¦   util.lua
+¦   ¦       ¦       ¦   weapon.lua
+¦   ¦       ¦       ¦   yaml.lua
+¦   ¦       ¦       ¦   
+¦   ¦       ¦       +---client
+¦   ¦       ¦       ¦       !paint.lua
+¦   ¦       ¦       ¦       date.lua
+¦   ¦       ¦       ¦       draw.lua
+¦   ¦       ¦       ¦       file.lua
+¦   ¦       ¦       ¦       hooks.lua
+¦   ¦       ¦       ¦       name.lua
+¦   ¦       ¦       ¦       outline.lua
+¦   ¦       ¦       ¦       safespace.lua
+¦   ¦       ¦       ¦       usergroup.lua
+¦   ¦       ¦       ¦       
+¦   ¦       ¦       L---data
+¦   ¦       ¦               utf8_data.lua
+¦   ¦       ¦               
+¦   ¦       L---matproxy
+¦   ¦               sky_paint.lua
+¦   ¦               
+¦   +---darkrpmod
+¦   ¦   L---lua
+¦   ¦       ¦   plogs_cfg.lua
+¦   ¦       ¦   textscreens_config.lua
+¦   ¦       ¦   
+¦   ¦       +---autorun
+¦   ¦       ¦   ¦   !!fix.lua
+¦   ¦       ¦   ¦   cppi.lua
+¦   ¦       ¦   ¦   l_gluegram.lua
+¦   ¦       ¦   ¦   plogs_init.lua
+¦   ¦       ¦   ¦   pprotect_init.lua
+¦   ¦       ¦   ¦   schat.lua
+¦   ¦       ¦   ¦   sh_antibhop.lua
+¦   ¦       ¦   ¦   textscreens_util.lua
+¦   ¦       ¦   ¦   union_stalker_animations.lua
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   L---client
+¦   ¦       ¦           cl_acs.lua
+¦   ¦       ¦           cl_cremator_stuff.lua
+¦   ¦       ¦           cl_permaload.lua
+¦   ¦       ¦           cl_rtx.lua
+¦   ¦       ¦           keypad.lua
+¦   ¦       ¦           player.lua
+¦   ¦       ¦           
+¦   ¦       +---darkrp_config
+¦   ¦       ¦       disabled_defaults.lua
+¦   ¦       ¦       licenseweapons.lua
+¦   ¦       ¦       settings.lua
+¦   ¦       ¦       
+¦   ¦       +---darkrp_customthings
+¦   ¦       ¦       agendas.lua
+¦   ¦       ¦       ammo.lua
+¦   ¦       ¦       categories.lua
+¦   ¦       ¦       demotegroups.lua
+¦   ¦       ¦       doorgroups.lua
+¦   ¦       ¦       entities.lua
+¦   ¦       ¦       food.lua
+¦   ¦       ¦       groupchats.lua
+¦   ¦       ¦       jobs (1).lua
+¦   ¦       ¦       jobs.lua
+¦   ¦       ¦       shipments.lua
+¦   ¦       ¦       vehicles.lua
+¦   ¦       ¦       
+¦   ¦       +---darkrp_language
+¦   ¦       ¦       chatcommands.lua
+¦   ¦       ¦       english.lua
+¦   ¦       ¦       russian.lua
+¦   ¦       ¦       
+¦   ¦       +---darkrp_modules
+¦   ¦       ¦   +---admin
+¦   ¦       ¦   ¦       cl_nocollide.lua
+¦   ¦       ¦   ¦       cl_salary.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---afk
+¦   ¦       ¦   ¦       cl_afk.lua
+¦   ¦       ¦   ¦       sh_afk.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---anims
+¦   ¦       ¦   ¦       cl_anims.lua
+¦   ¦       ¦   ¦       cl_sequence.lua
+¦   ¦       ¦   ¦       sh_animlist.lua
+¦   ¦       ¦   ¦       sh_style.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---arrest_system
+¦   ¦       ¦   ¦       cl_arrest_system.lua
+¦   ¦       ¦   ¦       sh_arrest_config.lua
+¦   ¦       ¦   ¦       sh_arrest_items.lua
+¦   ¦       ¦   ¦       sh_arrest_system.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---broadcast
+¦   ¦       ¦   ¦       cl_broadcast.lua
+¦   ¦       ¦   ¦       sh_broadcast.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---capture_bases
+¦   ¦       ¦   ¦       cl_draw.lua
+¦   ¦       ¦   ¦       cl_sync_data.lua
+¦   ¦       ¦   ¦       sh_cfg.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---capture_points
+¦   ¦       ¦   ¦       cl_points.lua
+¦   ¦       ¦   ¦       sh_point.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---chat
+¦   ¦       ¦   ¦   ¦   cl_advert.lua
+¦   ¦       ¦   ¦   ¦   cl_chatfilter.lua
+¦   ¦       ¦   ¦   ¦   cl_chatsounds.lua
+¦   ¦       ¦   ¦   ¦   cl_mute.lua
+¦   ¦       ¦   ¦   ¦   sh_chatsounds.lua
+¦   ¦       ¦   ¦   ¦   sh_declare.lua
+¦   ¦       ¦   ¦   ¦   sh_player_addchat.lua
+¦   ¦       ¦   ¦   ¦   
+¦   ¦       ¦   ¦   L---phrases
+¦   ¦       ¦   ¦           sh_chatsounds_list.lua
+¦   ¦       ¦   ¦           
+¦   ¦       ¦   +---cid
+¦   ¦       ¦   ¦       cl_cid.lua
+¦   ¦       ¦   ¦       sh_cid.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---cp_warns
+¦   ¦       ¦   ¦       cl_cpwarns.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---deceive
+¦   ¦       ¦   ¦   ¦   sh_amain.lua
+¦   ¦       ¦   ¦   ¦   
+¦   ¦       ¦   ¦   +---more
+¦   ¦       ¦   ¦   ¦       cl_disguise.lua
+¦   ¦       ¦   ¦   ¦       cl_interface.lua
+¦   ¦       ¦   ¦   ¦       sh_config.lua
+¦   ¦       ¦   ¦   ¦       sh_disguise.lua
+¦   ¦       ¦   ¦   ¦       sh_translations.lua
+¦   ¦       ¦   ¦   ¦       
+¦   ¦       ¦   ¦   L---translations
+¦   ¦       ¦   ¦           de.lua
+¦   ¦       ¦   ¦           fr.lua
+¦   ¦       ¦   ¦           us.lua
+¦   ¦       ¦   ¦           
+¦   ¦       ¦   +---derma
+¦   ¦       ¦   ¦       cl_dialog.lua
+¦   ¦       ¦   ¦       cl_jobs.lua
+¦   ¦       ¦   ¦       cl_npc.lua
+¦   ¦       ¦   ¦       cl_uframe.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---diseases
+¦   ¦       ¦   ¦       cl_diseases.lua
+¦   ¦       ¦   ¦       sh_diseases.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---gps
+¦   ¦       ¦   ¦       cl_cfg_gps.lua
+¦   ¦       ¦   ¦       cl_gps.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---halloween
+¦   ¦       ¦   ¦       cl_halloween.lua
+¦   ¦       ¦   ¦       sh_halloween.lua
+¦   ¦       ¦   ¦       sh_halloween_jobs.lua
+¦   ¦       ¦   ¦       sh_halloween_weather.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---handcuffs
+¦   ¦       ¦   ¦       cl_handcuffs.lua
+¦   ¦       ¦   ¦       sh_handcuffs.lua
+¦   ¦       ¦   ¦       sh_metas.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---igs_is_shit
+¦   ¦       ¦   ¦       cl_igs_is_shit.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---interface
+¦   ¦       ¦   ¦       cl_aesthetic_config.lua
+¦   ¦       ¦   ¦       cl_aesthetic_menu.lua
+¦   ¦       ¦   ¦       cl_cmenu.lua
+¦   ¦       ¦   ¦       cl_codes.lua
+¦   ¦       ¦   ¦       cl_doordisplay.lua
+¦   ¦       ¦   ¦       cl_esc.lua
+¦   ¦       ¦   ¦       cl_huds.lua
+¦   ¦       ¦   ¦       cl_huds_new.lua
+¦   ¦       ¦   ¦       cl_infobox.lua
+¦   ¦       ¦   ¦       cl_laws.lua
+¦   ¦       ¦   ¦       cl_legs.lua
+¦   ¦       ¦   ¦       cl_lowhpeffect.lua
+¦   ¦       ¦   ¦       cl_notifys.lua
+¦   ¦       ¦   ¦       cl_otavisor.lua
+¦   ¦       ¦   ¦       cl_overlays.lua
+¦   ¦       ¦   ¦       cl_rxp_accesspanel.lua
+¦   ¦       ¦   ¦       cl_rxp_printerpanel.lua
+¦   ¦       ¦   ¦       cl_scoreboard.lua
+¦   ¦       ¦   ¦       cl_style.lua
+¦   ¦       ¦   ¦       cl_tags.lua
+¦   ¦       ¦   ¦       cl_toolsearch.lua
+¦   ¦       ¦   ¦       cl_voice.lua
+¦   ¦       ¦   ¦       cl_vote.lua
+¦   ¦       ¦   ¦       cl_votes.lua
+¦   ¦       ¦   ¦       cl_weaponselect.lua
+¦   ¦       ¦   ¦       sh_bodygroups.lua
+¦   ¦       ¦   ¦       sh_cfg.lua
+¦   ¦       ¦   ¦       sh_properties_context.lua
+¦   ¦       ¦   ¦       sh_registerplayermodels.lua
+¦   ¦       ¦   ¦       sh_rxp_config.lua
+¦   ¦       ¦   ¦       sh_smartsnap.lua
+¦   ¦       ¦   ¦       sh_toolgun_sound.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---intro
+¦   ¦       ¦   ¦       cl_intro.lua
+¦   ¦       ¦   ¦       sh_intro.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---jobban
+¦   ¦       ¦   ¦       sh_jobban.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---job_system
+¦   ¦       ¦   ¦       cl_controls.lua
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       cl_utilities.lua
+¦   ¦       ¦   ¦       sh_init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---johnny
+¦   ¦       ¦   ¦       cl_cpcalls.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---nlr
+¦   ¦       ¦   ¦       cl_nlr.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---pda
+¦   ¦       ¦   ¦       cl_pda.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---player
+¦   ¦       ¦   ¦       cl_adminesp.lua
+¦   ¦       ¦   ¦       cl_animations.lua
+¦   ¦       ¦   ¦       cl_disableshiftducking.lua
+¦   ¦       ¦   ¦       cl_gordon_regen.lua
+¦   ¦       ¦   ¦       cl_meta.lua
+¦   ¦       ¦   ¦       cl_ragdoll.lua
+¦   ¦       ¦   ¦       cl_sniper_eow.lua
+¦   ¦       ¦   ¦       cl_thirdperson.lua
+¦   ¦       ¦   ¦       cl_vomit.lua
+¦   ¦       ¦   ¦       cl_zombie.lua
+¦   ¦       ¦   ¦       sh_blocksuicide.lua
+¦   ¦       ¦   ¦       sh_disableshiftducking.lua
+¦   ¦       ¦   ¦       sh_iscp_fix.lua
+¦   ¦       ¦   ¦       sh_lives.lua
+¦   ¦       ¦   ¦       sh_metas.lua
+¦   ¦       ¦   ¦       sh_morematerials.lua
+¦   ¦       ¦   ¦       sh_noclips.lua
+¦   ¦       ¦   ¦       sh_ragdoll.lua
+¦   ¦       ¦   ¦       sh_robbery.lua
+¦   ¦       ¦   ¦       sh_taunts.lua
+¦   ¦       ¦   ¦       sh_taunts_cfg.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---props
+¦   ¦       ¦   ¦       cl_hides.lua
+¦   ¦       ¦   ¦       cl_pp.lua
+¦   ¦       ¦   ¦       sh_prop.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---qte
+¦   ¦       ¦   ¦       cl_qte.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---radio
+¦   ¦       ¦   ¦       cl_radio.lua
+¦   ¦       ¦   ¦       cl_radio_admin.lua
+¦   ¦       ¦   ¦       sh_radio.lua
+¦   ¦       ¦   ¦       sh_voice_distance.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---recognition
+¦   ¦       ¦   ¦       cl_recognition.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---rtx
+¦   ¦       ¦   ¦       cl_build_core.lua
+¦   ¦       ¦   ¦       cl_build_displacements.lua
+¦   ¦       ¦   ¦       cl_build_map.lua
+¦   ¦       ¦   ¦       cl_build_static_prop.lua
+¦   ¦       ¦   ¦       cl_convars.lua
+¦   ¦       ¦   ¦       cl_detail_remover.lua
+¦   ¦       ¦   ¦       cl_lights.lua
+¦   ¦       ¦   ¦       cl_lights_queue.lua
+¦   ¦       ¦   ¦       cl_materials.lua
+¦   ¦       ¦   ¦       cl_mirrors.lua
+¦   ¦       ¦   ¦       cl_render.lua
+¦   ¦       ¦   ¦       cl_state.lua
+¦   ¦       ¦   ¦       cl_water.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---sagent_menu
+¦   ¦       ¦   ¦       cl_agent.lua
+¦   ¦       ¦   ¦       cl_agent_gui.lua
+¦   ¦       ¦   ¦       sh_agent.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---sg
+¦   ¦       ¦   ¦       cl_inits.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---squads
+¦   ¦       ¦   ¦       cl_squads.lua
+¦   ¦       ¦   ¦       sh_squads.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---storage
+¦   ¦       ¦   ¦       cl_pocket.lua
+¦   ¦       ¦   ¦       cl_storage.lua
+¦   ¦       ¦   ¦       sh_loot.lua
+¦   ¦       ¦   ¦       sh_storage.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---stories
+¦   ¦       ¦   ¦       cl_stories.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---ui
+¦   ¦       ¦   ¦       cl_custom_iconbrowser.lua
+¦   ¦       ¦   ¦       cl_donate_notify.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---util
+¦   ¦       ¦   ¦       sh_correctstrings.lua
+¦   ¦       ¦   ¦       sh_darkrp.lua
+¦   ¦       ¦   ¦       sh_pl.lua
+¦   ¦       ¦   ¦       sh_print.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---util_libs
+¦   ¦       ¦   ¦       cl_context_entity.lua
+¦   ¦       ¦   ¦       cl_marks.lua
+¦   ¦       ¦   ¦       cl_timedelay.lua
+¦   ¦       ¦   ¦       sh_onesecond.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---weeks
+¦   ¦       ¦   ¦       sh_init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   L---zones
+¦   ¦       ¦           cl_ambient.lua
+¦   ¦       ¦           cl_zones.lua
+¦   ¦       ¦           sh_zones.lua
+¦   ¦       ¦           
+¦   ¦       +---effects
+¦   ¦       ¦   +---im_explosion_large
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---im_flamepuffs
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---im_immolate
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---rxprinter_explode
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   L---rxprinter_gib
+¦   ¦       ¦           init.lua
+¦   ¦       ¦           
+¦   ¦       +---entities
+¦   ¦       ¦   ¦   antinlr_microwave.lua
+¦   ¦       ¦   ¦   april.lua
+¦   ¦       ¦   ¦   april2.lua
+¦   ¦       ¦   ¦   book_fighters.lua
+¦   ¦       ¦   ¦   boxdispenser.rar
+¦   ¦       ¦   ¦   disease_base.lua
+¦   ¦       ¦   ¦   ent_bandana.lua
+¦   ¦       ¦   ¦   ent_c4.lua
+¦   ¦       ¦   ¦   ent_flashlight.lua
+¦   ¦       ¦   ¦   ent_pill_antibiotic.lua
+¦   ¦       ¦   ¦   ent_pill_antibiotic_strong.lua
+¦   ¦       ¦   ¦   ent_poison.lua
+¦   ¦       ¦   ¦   ent_screeds.lua
+¦   ¦       ¦   ¦   event_endpoint.lua
+¦   ¦       ¦   ¦   event_startpoint.lua
+¦   ¦       ¦   ¦   item_armor_1.lua
+¦   ¦       ¦   ¦   item_armor_2.lua
+¦   ¦       ¦   ¦   item_armor_3.lua
+¦   ¦       ¦   ¦   item_health_1.lua
+¦   ¦       ¦   ¦   item_health_2.lua
+¦   ¦       ¦   ¦   ix_combinelock.lua
+¦   ¦       ¦   ¦   rationdispencer.lua
+¦   ¦       ¦   ¦   u_ammo_crate_r.lua
+¦   ¦       ¦   ¦   u_ammo_create.lua
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   +---advert_npc
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---aliancedrawer
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---arrest_spawner
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---arrest_spawn_basket
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---arrest_spawn_ent
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---arrest_spawn_receiver
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---arrest_spawn_stored
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---base_cpoints
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---bed_base
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---bed_heal
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---bed_house
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---bounty_poster
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---box
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---campfire
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---caseshere
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---cid_terminal
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---codes_speaker
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---combinedoor
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---container
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---couriergive_npc
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---couriertake_npc
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---daily_gift
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---decor_npc
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---decor_npc2
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---decor_npc3
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---decor_npc4
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---decor_npc5
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---dispensers
+¦   ¦       ¦   ¦   ¦   cl_init.lua
+¦   ¦       ¦   ¦   ¦   shared-boxdispenser.lua
+¦   ¦       ¦   ¦   ¦   shared-fooddispenser.lua
+¦   ¦       ¦   ¦   ¦   shared-rationdispenser.lua
+¦   ¦       ¦   ¦   ¦   shared-waterdispenser.lua
+¦   ¦       ¦   ¦   ¦   
+¦   ¦       ¦   ¦   +---boxdispenser
+¦   ¦       ¦   ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦   ¦       shared-boxdispenser.lua
+¦   ¦       ¦   ¦   ¦       
+¦   ¦       ¦   ¦   +---fooddispenser
+¦   ¦       ¦   ¦   ¦       shared-fooddispenser.lua
+¦   ¦       ¦   ¦   ¦       
+¦   ¦       ¦   ¦   +---rationdispenser
+¦   ¦       ¦   ¦   ¦       shared-rationdispenser.lua
+¦   ¦       ¦   ¦   ¦       
+¦   ¦       ¦   ¦   L---waterdispenser
+¦   ¦       ¦   ¦           shared-waterdispenser.lua
+¦   ¦       ¦   ¦           
+¦   ¦       ¦   +---donat_present
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---emp_gun
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---entity_radio
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---ent_pill_poison
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---factory
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---fallout_radio
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---food
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---forcefields
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---fun_spawned_money
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---gb_rp_sign
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---gsr_courier_ration
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---gsr_courier_target
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---gsr_medic_sorting
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---gsr_mus_container
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---gsr_mus_utilize
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---halloween_pumpkin
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---heals_give_npc
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---health_item_base
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---help_npc
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---ironer
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---item_battery
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---job_npc
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---job_npc1
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---job_npc10
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---job_npc2
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---job_npc3
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---job_npc4
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---job_npc5
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---job_npc6
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---job_npc7
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---job_npc8
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---job_npc9
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---job_npc_ivent
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---keypad
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       cl_maths.lua
+¦   ¦       ¦   ¦       cl_panel.lua
+¦   ¦       ¦   ¦       sh_init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---mask1
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---maskcab
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---medkit
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---mus_1
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---mus_2
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---npc_jailer
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---ny_gift
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---otamaker
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---otsilka_npc
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---paper
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---paper_doc
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---prototypes
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---radio_music
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---ration
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---rebeldrawer
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---rebel_stove
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---rx_printer_base
+¦   ¦       ¦   ¦   ¦   cl_init.lua
+¦   ¦       ¦   ¦   ¦   shared.lua
+¦   ¦       ¦   ¦   ¦   sh_printers.lua
+¦   ¦       ¦   ¦   ¦   sh_printers_cfg.lua
+¦   ¦       ¦   ¦   ¦   sh_upgrader.lua
+¦   ¦       ¦   ¦   ¦   
+¦   ¦       ¦   ¦   L---upgrade
+¦   ¦       ¦   ¦           armor.lua
+¦   ¦       ¦   ¦           booster.lua
+¦   ¦       ¦   ¦           cooler.lua
+¦   ¦       ¦   ¦           hull.lua
+¦   ¦       ¦   ¦           mute.lua
+¦   ¦       ¦   ¦           notice.lua
+¦   ¦       ¦   ¦           software.lua
+¦   ¦       ¦   ¦           
+¦   ¦       ¦   +---sagent_terminal
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---sammyservers_textscreen
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---scanner_terminal
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---sent_disguise_drawer
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---sent_disguise_kit
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---sent_traceparticle
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---shooting_range
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---take_illegal_npc
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---take_illegal_npc2
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---teleport_terminal
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---terminals_stalker
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---terminals_stalker_super
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---trasher
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---unionrp_camera
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---unionrp_suit
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---unionrp_teleport
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---unionrp_teleport_platform
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---union_armordispenser
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---union_base_ent
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---union_fooddispenser
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---union_fooddispenser_rebel
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---union_foodstorage
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---water
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---waterdisp
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   L---weapon_give_npc
+¦   ¦       ¦           cfg.lua
+¦   ¦       ¦           cl_init.lua
+¦   ¦       ¦           shared.lua
+¦   ¦       ¦           
+¦   ¦       +---lib
+¦   ¦       ¦   L---client
+¦   ¦       ¦           imgui (1).lua
+¦   ¦       ¦           imgui (2).lua
+¦   ¦       ¦           imgui.lua
+¦   ¦       ¦           
+¦   ¦       +---patchprotect
+¦   ¦       ¦   L---client
+¦   ¦       ¦           buddy.lua
+¦   ¦       ¦           csettings.lua
+¦   ¦       ¦           derma.lua
+¦   ¦       ¦           fonts.lua
+¦   ¦       ¦           hud.lua
+¦   ¦       ¦           panel.lua
+¦   ¦       ¦           
+¦   ¦       +---permaprops
+¦   ¦       ¦       cl_drawent.lua
+¦   ¦       ¦       cl_menu.lua
+¦   ¦       ¦       
+¦   ¦       +---plogs
+¦   ¦       ¦   ¦   console.lua
+¦   ¦       ¦   ¦   core_sh.lua
+¦   ¦       ¦   ¦   menu.lua
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   +---lib
+¦   ¦       ¦   ¦       pdraw.lua
+¦   ¦       ¦   ¦       pon1.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---vgui
+¦   ¦       ¦   ¦       frame.lua
+¦   ¦       ¦   ¦       skin.lua
+¦   ¦       ¦   ¦       tablist.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   L---workarounds
+¦   ¦       ¦           sanity_checker.lua
+¦   ¦       ¦           
+¦   ¦       +---plogs_hooks
+¦   ¦       ¦       chat.lua
+¦   ¦       ¦       connections.lua
+¦   ¦       ¦       cuffs.lua
+¦   ¦       ¦       darkrp.lua
+¦   ¦       ¦       kills.lua
+¦   ¦       ¦       union.lua
+¦   ¦       ¦       
+¦   ¦       +---postprocess
+¦   ¦       ¦       texturize.lua
+¦   ¦       ¦       
+¦   ¦       +---schat2
+¦   ¦       ¦   ¦   cl_schat2.lua
+¦   ¦       ¦   ¦   cl_schat2_cvars.lua
+¦   ¦       ¦   ¦   schat2_config.lua
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   L---vgui
+¦   ¦       ¦           cl_basepanel.lua
+¦   ¦       ¦           
+¦   ¦       L---weapons
+¦   ¦           ¦   briefcase.lua
+¦   ¦           ¦   fake_nalog.lua
+¦   ¦           ¦   guitar_test.lua
+¦   ¦           ¦   hidden.lua
+¦   ¦           ¦   hl2_hands.lua
+¦   ¦           ¦   jeffswep.lua
+¦   ¦           ¦   rationswep.lua
+¦   ¦           ¦   stalker_swep.lua
+¦   ¦           ¦   weapon_c4.lua
+¦   ¦           ¦   weapon_medkit.lua
+¦   ¦           ¦   weapon_medkit_low.lua
+¦   ¦           ¦   weapon_medkit_rebel.lua
+¦   ¦           ¦   zombieswep.lua
+¦   ¦           ¦   zombieswep2.lua
+¦   ¦           ¦   zombieswep3.lua
+¦   ¦           ¦   zombieswep4.lua
+¦   ¦           ¦   
+¦   ¦           +---cid_new
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---fun_swep
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---gman_case
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---gmod_tool
+¦   ¦           ¦   L---stools
+¦   ¦           ¦           colour.lua
+¦   ¦           ¦           fading_door.lua
+¦   ¦           ¦           keypad_willox.lua
+¦   ¦           ¦           ledscreen.lua
+¦   ¦           ¦           nocollideeverything.lua
+¦   ¦           ¦           permaprops.lua
+¦   ¦           ¦           precision.lua
+¦   ¦           ¦           removeprops.lua
+¦   ¦           ¦           shadowremover.lua
+¦   ¦           ¦           spawn_campfire.lua
+¦   ¦           ¦           spawn_container.lua
+¦   ¦           ¦           submaterial.lua
+¦   ¦           ¦           textscreen.lua
+¦   ¦           ¦           
+¦   ¦           +---keypad_cracker
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---money_checker
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---mp_stunstick
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---nalogswep
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---progressweapon_base
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---robbery
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---scary_swep
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---swep_disguise_briefcase
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---swep_vortigaunt_beam
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---weapon_broom
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---weapon_immolator
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---weapon_radio
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           L---weapon_scanner
+¦   ¦                   cl_init.lua
+¦   ¦                   shared.lua
+¦   ¦                   
+¦   +---fprofiler
+¦   ¦   L---lua
+¦   ¦       +---autorun
+¦   ¦       ¦       fprofiler.lua
+¦   ¦       ¦       
+¦   ¦       +---fprofiler
+¦   ¦       ¦   ¦   cami.lua
+¦   ¦       ¦   ¦   gather.lua
+¦   ¦       ¦   ¦   prettyprint.lua
+¦   ¦       ¦   ¦   report.lua
+¦   ¦       ¦   ¦   util.lua
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   L---ui
+¦   ¦       ¦           clientcontrol.lua
+¦   ¦       ¦           frame.lua
+¦   ¦       ¦           model.lua
+¦   ¦       ¦           servercontrol.lua
+¦   ¦       ¦           
+¦   ¦       L---ulx
+¦   ¦           L---modules
+¦   ¦               L---sh
+¦   ¦                       fprofiler.lua
+¦   ¦                       
+¦   +---gluatest
+¦   ¦   L---lua
+¦   ¦       L---autorun
+¦   ¦               gluatest.lua
+¦   ¦               
+¦   +---igsmodification
+¦   ¦   L---lua
+¦   ¦       +---autorun
+¦   ¦       ¦       l_ingameshopmod.lua
+¦   ¦       ¦       
+¦   ¦       L---igs
+¦   ¦           L---settings
+¦   ¦                   config_sh.lua
+¦   ¦                   sh_additems.lua
+¦   ¦                   sh_addlevels.lua
+¦   ¦                   
+¦   +---luadev
+¦   ¦   L---lua
+¦   ¦       +---autorun
+¦   ¦       ¦       easylua.lua
+¦   ¦       ¦       luadev.lua
+¦   ¦       ¦       
+¦   ¦       L---luadev
+¦   ¦               luadev.lua
+¦   ¦               luadev_sh.lua
+¦   ¦               socketdev.lua
+¦   ¦               
+¦   +---misc
+¦   ¦   L---lua
+¦   ¦       L---weapons
+¦   ¦           L---guitar
+¦   ¦                   cl_init.lua
+¦   ¦                   shared.lua
+¦   ¦                   
+¦   +---snowballs
+¦   ¦   L---lua
+¦   ¦       +---autorun
+¦   ¦       ¦       zck_load.lua
+¦   ¦       ¦       
+¦   ¦       +---entities
+¦   ¦       ¦   +---zck_snowball
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   L---zck_snowballcrate
+¦   ¦       ¦           cl_init.lua
+¦   ¦       ¦           shared.lua
+¦   ¦       ¦           
+¦   ¦       L---weapons
+¦   ¦               zck_snowballswep.lua
+¦   ¦               
+¦   +---someshit
+¦   ¦   L---lua
+¦   ¦       +---autorun
+¦   ¦       ¦       autorun_rewards.lua
+¦   ¦       ¦       eris_load.lua
+¦   ¦       ¦       
+¦   ¦       L---eris
+¦   ¦           ¦   cl_init.lua
+¦   ¦           ¦   config.lua
+¦   ¦           ¦   sh_init.lua
+¦   ¦           ¦   
+¦   ¦           +---themes
+¦   ¦           ¦       electric.lua
+¦   ¦           ¦       flat.lua
+¦   ¦           ¦       frost.lua
+¦   ¦           ¦       kload.lua
+¦   ¦           ¦       light.lua
+¦   ¦           ¦       tuxedo.lua
+¦   ¦           ¦       
+¦   ¦           L---ui
+¦   ¦                   cl_ammo.lua
+¦   ¦                   cl_base.lua
+¦   ¦                   cl_circleavatar.lua
+¦   ¦                   cl_dashboard.lua
+¦   ¦                   cl_entities.lua
+¦   ¦                   cl_food.lua
+¦   ¦                   cl_header.lua
+¦   ¦                   cl_jobs.lua
+¦   ¦                   cl_modelpanel.lua
+¦   ¦                   cl_shipments.lua
+¦   ¦                   cl_sidebarbutton.lua
+¦   ¦                   cl_themes.lua
+¦   ¦                   cl_tooltip.lua
+¦   ¦                   cl_vehicles.lua
+¦   ¦                   cl_weapons.lua
+¦   ¦                   cl_webbrowser.lua
+¦   ¦                   
+¦   +---stormfox2
+¦   ¦   L---lua
+¦   ¦       +---autorun
+¦   ¦       ¦       stormfox2.lua
+¦   ¦       ¦       
+¦   ¦       +---entities
+¦   ¦       ¦   ¦   env_atmosphere.lua
+¦   ¦       ¦   ¦   stormfox_clock.lua
+¦   ¦       ¦   ¦   stormfox_digitalclock.lua
+¦   ¦       ¦   ¦   stormfox_streetlight_invisible.lua
+¦   ¦       ¦   ¦   stormfox_weekweather.lua
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   +---stormfox_mapice
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   L---stormfox_oil_lamp
+¦   ¦       ¦           cl_init.lua
+¦   ¦       ¦           shared.lua
+¦   ¦       ¦           
+¦   ¦       +---stormfox2
+¦   ¦       ¦   ¦   sh_cwi.lua
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   +---framework
+¦   ¦       ¦   ¦       cl_clientquality.lua
+¦   ¦       ¦   ¦       cl_envioment.lua
+¦   ¦       ¦   ¦       cl_heavens.lua
+¦   ¦       ¦   ¦       sh_date.lua
+¦   ¦       ¦   ¦       sh_defaultgamemodes.lua
+¦   ¦       ¦   ¦       sh_heavens.lua
+¦   ¦       ¦   ¦       sh_maplight.lua
+¦   ¦       ¦   ¦       sh_mixer.lua
+¦   ¦       ¦   ¦       sh_shadowcontrol.lua
+¦   ¦       ¦   ¦       sh_temperature.lua
+¦   ¦       ¦   ¦       sh_thunder.lua
+¦   ¦       ¦   ¦       sh_timemaster.lua
+¦   ¦       ¦   ¦       sh_weather_handle.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---functions
+¦   ¦       ¦   ¦       cl_clouds.lua
+¦   ¦       ¦   ¦       cl_contextmenu.lua
+¦   ¦       ¦   ¦       cl_effects.lua
+¦   ¦       ¦   ¦       cl_localization.lua
+¦   ¦       ¦   ¦       cl_menu.lua
+¦   ¦       ¦   ¦       cl_menu_sv.lua
+¦   ¦       ¦   ¦       cl_sky.lua
+¦   ¦       ¦   ¦       cl_spook.lua
+¦   ¦       ¦   ¦       cl_weather_gen.lua
+¦   ¦       ¦   ¦       sh_concommands.lua
+¦   ¦       ¦   ¦       sh_controller.lua
+¦   ¦       ¦   ¦       sh_fog.lua
+¦   ¦       ¦   ¦       sh_footprints.lua
+¦   ¦       ¦   ¦       sh_tonemapcontroller.lua
+¦   ¦       ¦   ¦       sh_tweaks.lua
+¦   ¦       ¦   ¦       sh_vfire.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---lib
+¦   ¦       ¦   ¦       cl_ambiencesnd.lua
+¦   ¦       ¦   ¦       cl_defaultparticles.lua
+¦   ¦       ¦   ¦       cl_entities.lua
+¦   ¦       ¦   ¦       cl_fonts.lua
+¦   ¦       ¦   ¦       cl_vgui.lua
+¦   ¦       ¦   ¦       sh_cami.lua
+¦   ¦       ¦   ¦       sh_data.lua
+¦   ¦       ¦   ¦       sh_downfall.lua
+¦   ¦       ¦   ¦       sh_mapglass.lua
+¦   ¦       ¦   ¦       sh_network.lua
+¦   ¦       ¦   ¦       sh_permission.lua
+¦   ¦       ¦   ¦       sh_reset.lua
+¦   ¦       ¦   ¦       sh_settings.lua
+¦   ¦       ¦   ¦       sh_terrain.lua
+¦   ¦       ¦   ¦       sh_util.lua
+¦   ¦       ¦   ¦       sh_version.lua
+¦   ¦       ¦   ¦       sh_weather_meta.lua
+¦   ¦       ¦   ¦       sh_wind.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   L---weathers
+¦   ¦       ¦           clear.lua
+¦   ¦       ¦           cloudrain.lua
+¦   ¦       ¦           fallout.lua
+¦   ¦       ¦           fog.lua
+¦   ¦       ¦           lava.lua
+¦   ¦       ¦           sand.lua
+¦   ¦       ¦           
+¦   ¦       L---weapons
+¦   ¦           ¦   lightning_gun.lua
+¦   ¦           ¦   
+¦   ¦           L---sf2_tool
+¦   ¦               ¦   cl_init.lua
+¦   ¦               ¦   shared.lua
+¦   ¦               ¦   
+¦   ¦               L---settings
+¦   ¦                       light_editor.lua
+¦   ¦                       surface_editor.lua
+¦   ¦                       
+¦   +---tfa_base
+¦   ¦   L---lua
+¦   ¦       +---autorun
+¦   ¦       ¦       tfa_base_autorun.lua
+¦   ¦       ¦       
+¦   ¦       +---effects
+¦   ¦       ¦   +---tfa_bullet_impact
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_dust_impact
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_metal_impact
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzleflash_cryo
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzleflash_energy
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzleflash_gauss
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzleflash_generic
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzleflash_incendiary
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzleflash_pistol
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzleflash_revolver
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzleflash_rifle
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzleflash_shotgun
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzleflash_silenced
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzleflash_smg
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzleflash_sniper
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzleflash_sniper_energy
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzlesmoke
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_muzzle_smoketrail
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_penetrate
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_ricochet
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_shell
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_shelleject_smoke
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_shell_legacy
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_tracer_cryo
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_tracer_gauss
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_tracer_incendiary
+¦   ¦       ¦   ¦       init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   L---tfa_tracer_plasma
+¦   ¦       ¦           init.lua
+¦   ¦       ¦           
+¦   ¦       +---entities
+¦   ¦       ¦   ¦   tfa_ammo_base.lua
+¦   ¦       ¦   ¦   tfa_exp_contact.lua
+¦   ¦       ¦   ¦   tfa_exp_rocket.lua
+¦   ¦       ¦   ¦   tfa_exp_timed.lua
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   +---tfa_exp_base
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfa_thrown_blade
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfbow_arrow
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---tfbow_arrow_stuck
+¦   ¦       ¦   ¦       cl_init.lua
+¦   ¦       ¦   ¦       shared.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   L---tfbow_arrow_stuck_clientside
+¦   ¦       ¦           cl_init.lua
+¦   ¦       ¦           shared.lua
+¦   ¦       ¦           
+¦   ¦       +---tfa
+¦   ¦       ¦   ¦   3dscoped_base.lua
+¦   ¦       ¦   ¦   muzzleflash_base (1).lua
+¦   ¦       ¦   ¦   muzzleflash_base (10).lua
+¦   ¦       ¦   ¦   muzzleflash_base (2).lua
+¦   ¦       ¦   ¦   muzzleflash_base (3).lua
+¦   ¦       ¦   ¦   muzzleflash_base (4).lua
+¦   ¦       ¦   ¦   muzzleflash_base (5).lua
+¦   ¦       ¦   ¦   muzzleflash_base (6).lua
+¦   ¦       ¦   ¦   muzzleflash_base (7).lua
+¦   ¦       ¦   ¦   muzzleflash_base (8).lua
+¦   ¦       ¦   ¦   muzzleflash_base (9).lua
+¦   ¦       ¦   ¦   muzzleflash_base.lua
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   +---att
+¦   ¦       ¦   ¦       am_gib (1).lua
+¦   ¦       ¦   ¦       am_gib (2).lua
+¦   ¦       ¦   ¦       am_gib (3).lua
+¦   ¦       ¦   ¦       am_gib.lua
+¦   ¦       ¦   ¦       am_magnum (1).lua
+¦   ¦       ¦   ¦       am_magnum (2).lua
+¦   ¦       ¦   ¦       am_magnum (3).lua
+¦   ¦       ¦   ¦       am_magnum.lua
+¦   ¦       ¦   ¦       am_match (1).lua
+¦   ¦       ¦   ¦       am_match (2).lua
+¦   ¦       ¦   ¦       am_match (3).lua
+¦   ¦       ¦   ¦       am_match.lua
+¦   ¦       ¦   ¦       at_grip (1).lua
+¦   ¦       ¦   ¦       at_grip (2).lua
+¦   ¦       ¦   ¦       at_grip (3).lua
+¦   ¦       ¦   ¦       at_grip.lua
+¦   ¦       ¦   ¦       base (1).lua
+¦   ¦       ¦   ¦       base (2).lua
+¦   ¦       ¦   ¦       base (3).lua
+¦   ¦       ¦   ¦       base.lua
+¦   ¦       ¦   ¦       br_supp (1).lua
+¦   ¦       ¦   ¦       br_supp (2).lua
+¦   ¦       ¦   ¦       br_supp (3).lua
+¦   ¦       ¦   ¦       br_supp.lua
+¦   ¦       ¦   ¦       sg_frag (1).lua
+¦   ¦       ¦   ¦       sg_frag (2).lua
+¦   ¦       ¦   ¦       sg_frag (3).lua
+¦   ¦       ¦   ¦       sg_frag.lua
+¦   ¦       ¦   ¦       sg_slug (1).lua
+¦   ¦       ¦   ¦       sg_slug (2).lua
+¦   ¦       ¦   ¦       sg_slug (3).lua
+¦   ¦       ¦   ¦       sg_slug.lua
+¦   ¦       ¦   ¦       si_acog (1).lua
+¦   ¦       ¦   ¦       si_acog (2).lua
+¦   ¦       ¦   ¦       si_acog (3).lua
+¦   ¦       ¦   ¦       si_acog.lua
+¦   ¦       ¦   ¦       si_aimpoint (1).lua
+¦   ¦       ¦   ¦       si_aimpoint (2).lua
+¦   ¦       ¦   ¦       si_aimpoint (3).lua
+¦   ¦       ¦   ¦       si_aimpoint.lua
+¦   ¦       ¦   ¦       si_eotech (1).lua
+¦   ¦       ¦   ¦       si_eotech (2).lua
+¦   ¦       ¦   ¦       si_eotech (3).lua
+¦   ¦       ¦   ¦       si_eotech.lua
+¦   ¦       ¦   ¦       si_rt_base (1).lua
+¦   ¦       ¦   ¦       si_rt_base (2).lua
+¦   ¦       ¦   ¦       si_rt_base (3).lua
+¦   ¦       ¦   ¦       si_rt_base.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---ballistics
+¦   ¦       ¦   ¦       bullet.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---enums
+¦   ¦       ¦   ¦       animation.lua
+¦   ¦       ¦   ¦       idle.lua
+¦   ¦       ¦   ¦       locomotion.lua
+¦   ¦       ¦   ¦       sights.lua
+¦   ¦       ¦   ¦       statusnew.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---framework
+¦   ¦       ¦   ¦       tfa_loader.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   L---modules
+¦   ¦       ¦           cl_tfa_attachment_icon.lua
+¦   ¦       ¦           cl_tfa_attachment_panel.lua
+¦   ¦       ¦           cl_tfa_attachment_tip.lua
+¦   ¦       ¦           cl_tfa_changelog.lua
+¦   ¦       ¦           cl_tfa_commands.lua
+¦   ¦       ¦           cl_tfa_devtools.lua
+¦   ¦       ¦           cl_tfa_fonts.lua
+¦   ¦       ¦           cl_tfa_hitmarker.lua
+¦   ¦       ¦           cl_tfa_inspection.lua
+¦   ¦       ¦           cl_tfa_materials.lua
+¦   ¦       ¦           cl_tfa_models.lua
+¦   ¦       ¦           cl_tfa_particles_lua.lua
+¦   ¦       ¦           cl_tfa_projtex.lua
+¦   ¦       ¦           cl_tfa_rendertarget.lua
+¦   ¦       ¦           cl_tfa_rtbgblur.lua
+¦   ¦       ¦           cl_tfa_settingsmenu.lua
+¦   ¦       ¦           cl_tfa_stencilsights.lua
+¦   ¦       ¦           cl_tfa_subcategories.lua
+¦   ¦       ¦           cl_tfa_vgui.lua
+¦   ¦       ¦           cl_tfa_vm_blur.lua
+¦   ¦       ¦           tfa_ammo.lua
+¦   ¦       ¦           tfa_attachments.lua
+¦   ¦       ¦           tfa_ballistics.lua
+¦   ¦       ¦           tfa_bodygroups.lua
+¦   ¦       ¦           tfa_commands.lua
+¦   ¦       ¦           tfa_darkrp.lua
+¦   ¦       ¦           tfa_data.lua
+¦   ¦       ¦           tfa_effects.lua
+¦   ¦       ¦           tfa_envcheck.lua
+¦   ¦       ¦           tfa_functions.lua
+¦   ¦       ¦           tfa_hooks.lua
+¦   ¦       ¦           tfa_keybinds.lua
+¦   ¦       ¦           tfa_keyvalues.lua
+¦   ¦       ¦           tfa_matproxies.lua
+¦   ¦       ¦           tfa_melee_autorun.lua
+¦   ¦       ¦           tfa_meta.lua
+¦   ¦       ¦           tfa_netcode.lua
+¦   ¦       ¦           tfa_npc_teamcolor.lua
+¦   ¦       ¦           tfa_npc_weaponmenu.lua
+¦   ¦       ¦           tfa_nzombies.lua
+¦   ¦       ¦           tfa_particles.lua
+¦   ¦       ¦           tfa_small_entities.lua
+¦   ¦       ¦           tfa_snd_timescale.lua
+¦   ¦       ¦           tfa_soundscripts.lua
+¦   ¦       ¦           tfa_tttpatch.lua
+¦   ¦       ¦           
+¦   ¦       L---weapons
+¦   ¦           ¦   tfa_bash_base.lua
+¦   ¦           ¦   tfa_bow_base.lua
+¦   ¦           ¦   tfa_knife_base.lua
+¦   ¦           ¦   tfa_nade_base.lua
+¦   ¦           ¦   tfa_sword_advanced_base.lua
+¦   ¦           ¦   
+¦   ¦           +---tfa_base_template
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_gun_base
+¦   ¦           ¦   ¦   cl_init.lua
+¦   ¦           ¦   ¦   shared.lua
+¦   ¦           ¦   ¦   
+¦   ¦           ¦   +---client
+¦   ¦           ¦   ¦       bobcode.lua
+¦   ¦           ¦   ¦       effects.lua
+¦   ¦           ¦   ¦       flashlight.lua
+¦   ¦           ¦   ¦       fov.lua
+¦   ¦           ¦   ¦       hud.lua
+¦   ¦           ¦   ¦       laser.lua
+¦   ¦           ¦   ¦       mods.lua
+¦   ¦           ¦   ¦       viewbob.lua
+¦   ¦           ¦   ¦       viewmodel.lua
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   L---common
+¦   ¦           ¦           ai_translations.lua
+¦   ¦           ¦           akimbo.lua
+¦   ¦           ¦           anims.lua
+¦   ¦           ¦           attachments.lua
+¦   ¦           ¦           autodetection.lua
+¦   ¦           ¦           bullet.lua
+¦   ¦           ¦           calc.lua
+¦   ¦           ¦           effects.lua
+¦   ¦           ¦           events.lua
+¦   ¦           ¦           nzombies.lua
+¦   ¦           ¦           skins.lua
+¦   ¦           ¦           stat.lua
+¦   ¦           ¦           ttt.lua
+¦   ¦           ¦           utils.lua
+¦   ¦           ¦           viewmodel.lua
+¦   ¦           ¦           
+¦   ¦           L---tfa_melee_base
+¦   ¦                   cl_init.lua
+¦   ¦                   shared.lua
+¦   ¦                   
+¦   +---tfa_css
+¦   ¦   L---lua
+¦   ¦       L---weapons
+¦   ¦           +---tfcss_ak47
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_aug
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_awp
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_deagle
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_dualelites
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_famas
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_fiveseven
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_g3sg1
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_galil
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_glock
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_m249
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_m3
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_m4a1
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_mac10
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_mp5
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_p228
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_p90
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_scout
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_sg550
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_sg552
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_tmp
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_ump45
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfcss_usp
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           L---tfcss_xm1014
+¦   ¦                   shared.lua
+¦   ¦                   
+¦   +---tfa_cut
+¦   ¦   L---lua
+¦   ¦       L---autorun
+¦   ¦           ¦   !tfa_cut_sh.lua
+¦   ¦           ¦   
+¦   ¦           L---client
+¦   ¦                   cl_hud.lua
+¦   ¦                   tfa_adjustable_zoom.lua
+¦   ¦                   tfa_effects.lua
+¦   ¦                   
+¦   +---tfa_hd_weapons
+¦   ¦   L---lua
+¦   ¦       +---effects
+¦   ¦       ¦       tfa_cso2_smoke.lua
+¦   ¦       ¦       tfa_muzzle_awp_ss.lua
+¦   ¦       ¦       tfa_tracer_awp_ss.lua
+¦   ¦       ¦       
+¦   ¦       +---tfa
+¦   ¦       ¦   +---att
+¦   ¦       ¦   ¦       cso2_lewd (1).lua
+¦   ¦       ¦   ¦       cso2_lewd (2).lua
+¦   ¦       ¦   ¦       cso2_lewd (3).lua
+¦   ¦       ¦   ¦       cso2_lewd.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   L---external
+¦   ¦       ¦           tfa_cso2_ammo.lua
+¦   ¦       ¦           tfa_cso2_ammo_heavy.lua
+¦   ¦       ¦           tfa_cso2_ammo_secondary.lua
+¦   ¦       ¦           tfa_cso2_flash_ext.lua
+¦   ¦       ¦           tfa_cso2_killicons.lua
+¦   ¦       ¦           tfa_cso2_killicons_heavy.lua
+¦   ¦       ¦           tfa_cso2_killicons_secondary.lua
+¦   ¦       ¦           tfa_cso2_particools.lua
+¦   ¦       ¦           tfa_cso2_particools_heavy.lua
+¦   ¦       ¦           tfa_cso2_particools_secondary.lua
+¦   ¦       ¦           tfa_cso2_snd.lua
+¦   ¦       ¦           tfa_cso2_snd_heavy.lua
+¦   ¦       ¦           tfa_cso2_snd_secondary.lua
+¦   ¦       ¦           tfa_svencoop_th_weapons.lua
+¦   ¦       ¦           tfa_svencoop_weapons.lua
+¦   ¦       ¦           
+¦   ¦       L---weapons
+¦   ¦               tfa_cso2_acr.lua
+¦   ¦               tfa_cso2_ak12.lua
+¦   ¦               tfa_cso2_anaconda.lua
+¦   ¦               tfa_cso2_awm.lua
+¦   ¦               tfa_cso2_dbarrel.lua
+¦   ¦               tfa_cso2_k12.lua
+¦   ¦               tfa_cso2_k2c.lua
+¦   ¦               tfa_cso2_k5.lua
+¦   ¦               tfa_cso2_m16m203.lua
+¦   ¦               tfa_cso2_m1903a3.lua
+¦   ¦               tfa_cso2_m3.lua
+¦   ¦               tfa_cso2_m4a1.lua
+¦   ¦               tfa_cso2_m79.lua
+¦   ¦               tfa_cso2_m870.lua
+¦   ¦               tfa_cso2_mk18.lua
+¦   ¦               tfa_cso2_mk23.lua
+¦   ¦               tfa_cso2_mp7.lua
+¦   ¦               tfa_cso2_p90.lua
+¦   ¦               tfa_cso2_scarh.lua
+¦   ¦               tfa_cso2_scout.lua
+¦   ¦               tfa_cso2_sg550.lua
+¦   ¦               tfa_cso2_tmp.lua
+¦   ¦               tfa_cso2_xm1014.lua
+¦   ¦               tfa_svencoop_deagle.lua
+¦   ¦               tfa_svencoop_handgun.lua
+¦   ¦               tfa_svencoop_lmg.lua
+¦   ¦               tfa_svencoop_revolver.lua
+¦   ¦               tfa_svencoop_th_1911.lua
+¦   ¦               tfa_svencoop_th_greasegun.lua
+¦   ¦               tfa_svencoop_th_m16.lua
+¦   ¦               tfa_svencoop_th_revolver.lua
+¦   ¦               tfa_svencoop_uzi.lua
+¦   ¦               
+¦   +---tfa_melee
+¦   ¦   L---lua
+¦   ¦       +---autorun
+¦   ¦       ¦       tfa_kf2_crovel.lua
+¦   ¦       ¦       tfa_kf2_katana.lua
+¦   ¦       ¦       tfa_kf2_zweihander.lua
+¦   ¦       ¦       
+¦   ¦       +---tfa
+¦   ¦       ¦   L---external
+¦   ¦       ¦           kf2_status.lua
+¦   ¦       ¦           tfa_l4d_mw2019_melee.lua
+¦   ¦       ¦           
+¦   ¦       L---weapons
+¦   ¦               tfa_melee_chair.lua
+¦   ¦               tfa_melee_club.lua
+¦   ¦               tfa_melee_crowbar.lua
+¦   ¦               tfa_melee_frying_pan.lua
+¦   ¦               tfa_melee_katana.lua
+¦   ¦               tfa_melee_knife.lua
+¦   ¦               tfa_melee_long_pipe.lua
+¦   ¦               tfa_melee_mace.lua
+¦   ¦               tfa_melee_pipe.lua
+¦   ¦               tfa_melee_plank.lua
+¦   ¦               tfa_melee_rebar.lua
+¦   ¦               tfa_melee_shovel.lua
+¦   ¦               tfa_melee_spade.lua
+¦   ¦               tfa_melee_stunstick.lua
+¦   ¦               tfa_melee_table_leg.lua
+¦   ¦               tfa_melee_zweihander.lua
+¦   ¦               tfa_mw2019_baton.lua
+¦   ¦               tfa_mw2019_crowbar.lua
+¦   ¦               tfa_mw2019_e_tool.lua
+¦   ¦               tfa_mw2019_fireaxe.lua
+¦   ¦               tfa_mw2019_golf_club.lua
+¦   ¦               tfa_mw2019_katana.lua
+¦   ¦               tfa_mw2019_knife.lua
+¦   ¦               tfa_mw2019_machete.lua
+¦   ¦               tfa_mw2019_metal_bat.lua
+¦   ¦               tfa_mw2019_pitchfork.lua
+¦   ¦               tfa_mw2019_shovel.lua
+¦   ¦               tfa_mw2019_sledgehammer.lua
+¦   ¦               tfa_mw2019_wood_bat.lua
+¦   ¦               
+¦   +---tfa_nades
+¦   ¦   L---lua
+¦   ¦       +---entities
+¦   ¦       ¦   L---ent_ins2_anm14
+¦   ¦       ¦           shared.lua
+¦   ¦       ¦           
+¦   ¦       +---tfa
+¦   ¦       ¦   L---external
+¦   ¦       ¦           tfa_ins2_anm14.lua
+¦   ¦       ¦           
+¦   ¦       L---weapons
+¦   ¦           ¦   tfa_ins2_anm14.lua
+¦   ¦           ¦   
+¦   ¦           L---tfa_ins2_nade_base
+¦   ¦                   cl_init.lua
+¦   ¦                   shared.lua
+¦   ¦                   
+¦   +---tfa_weapons
+¦   ¦   L---lua
+¦   ¦       +---autorun
+¦   ¦       ¦       homefront_sounds.lua
+¦   ¦       ¦       nmrihammo.lua
+¦   ¦       ¦       nmrihcvars.lua
+¦   ¦       ¦       nmrihsounds.lua
+¦   ¦       ¦       nmrihsounds2.lua
+¦   ¦       ¦       tfa_healing_ammo.lua
+¦   ¦       ¦       
+¦   ¦       +---effects
+¦   ¦       ¦   L---tubetracer
+¦   ¦       ¦           init.lua
+¦   ¦       ¦           
+¦   ¦       +---entities
+¦   ¦       ¦   L---ifak_ammo
+¦   ¦       ¦           shared.lua
+¦   ¦       ¦           
+¦   ¦       +---tfa
+¦   ¦       ¦   L---external
+¦   ¦       ¦           fas2_ifak.lua
+¦   ¦       ¦           tfa_crossbow.lua
+¦   ¦       ¦           tfa_nmrih_hooks.lua
+¦   ¦       ¦           
+¦   ¦       L---weapons
+¦   ¦           ¦   cod4_barrett_new.lua
+¦   ¦           ¦   cod4_dragunov_c.lua
+¦   ¦           ¦   cod4_m14.lua
+¦   ¦           ¦   tfa_alyxgun.lua
+¦   ¦           ¦   tfa_cmar2.lua
+¦   ¦           ¦   tfa_crossbow.lua
+¦   ¦           ¦   tfa_crossbow_fire.lua
+¦   ¦           ¦   tfa_dual_pistols.lua
+¦   ¦           ¦   tfa_hl2_ar2_mk2.lua
+¦   ¦           ¦   tfa_hl2_ar2_zombine.lua
+¦   ¦           ¦   tfa_hl2_scopedar2.lua
+¦   ¦           ¦   tfa_ifak.lua
+¦   ¦           ¦   tfa_ifak2.lua
+¦   ¦           ¦   tfa_mp5k_10.lua
+¦   ¦           ¦   tfa_mp5k_357.lua
+¦   ¦           ¦   tfa_mp7_l.lua
+¦   ¦           ¦   tfa_mp7_pdw.lua
+¦   ¦           ¦   tfa_mp9_cqc.lua
+¦   ¦           ¦   tfa_mp9_lsw.lua
+¦   ¦           ¦   tfa_oicw_combine.lua
+¦   ¦           ¦   tfa_oicw_p_combine.lua
+¦   ¦           ¦   tfa_osr1.lua
+¦   ¦           ¦   tfa_revolver.lua
+¦   ¦           ¦   tfa_sniper_combine.lua
+¦   ¦           ¦   tfa_sniper_s_combine.lua
+¦   ¦           ¦   tfa_spas12.lua
+¦   ¦           ¦   tfa_spas14.lua
+¦   ¦           ¦   tfa_usp_kmatch.lua
+¦   ¦           ¦   tfa_usp_match.lua
+¦   ¦           ¦   
+¦   ¦           +---tfa_nmrih_asaw
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_base
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_bat
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_bcd
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_chainsaw
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_cleaver
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_crowbar
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_etool
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_fireaxe
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_fists
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_fubar
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_hatchet
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_kknife
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_lpipe
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_machete
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_pickaxe
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_sledge
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_spade
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           +---tfa_nmrih_wrench
+¦   ¦           ¦       shared.lua
+¦   ¦           ¦       
+¦   ¦           L---tfa_nmrimelee_base
+¦   ¦                   cl_init.lua
+¦   ¦                   shared.lua
+¦   ¦                   
+¦   +---ulxlib
+¦   ¦   L---lua
+¦   ¦       +---autorun
+¦   ¦       ¦       ulib_init.lua
+¦   ¦       ¦       
+¦   ¦       +---ulib
+¦   ¦       ¦   ¦   cl_init.lua
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦       cl_util.lua
+¦   ¦       ¦   ¦       commands.lua
+¦   ¦       ¦   ¦       draw.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   +---modules
+¦   ¦       ¦   ¦       ulx_init.lua
+¦   ¦       ¦   ¦       
+¦   ¦       ¦   L---shared
+¦   ¦       ¦           cami_global.lua
+¦   ¦       ¦           cami_ulib.lua
+¦   ¦       ¦           commands.lua
+¦   ¦       ¦           defines.lua
+¦   ¦       ¦           hook.lua
+¦   ¦       ¦           messages.lua
+¦   ¦       ¦           misc.lua
+¦   ¦       ¦           player.lua
+¦   ¦       ¦           plugin.lua
+¦   ¦       ¦           sh_ucl.lua
+¦   ¦       ¦           tables.lua
+¦   ¦       ¦           util.lua
+¦   ¦       ¦           
+¦   ¦       L---ulx
+¦   ¦           ¦   cl_init.lua
+¦   ¦           ¦   cl_lib.lua
+¦   ¦           ¦   sh_base.lua
+¦   ¦           ¦   sh_defines.lua
+¦   ¦           ¦   
+¦   ¦           +---modules
+¦   ¦           ¦   +---cl
+¦   ¦           ¦   ¦       motdmenu.lua
+¦   ¦           ¦   ¦       uteam.lua
+¦   ¦           ¦   ¦       xgui_client.lua
+¦   ¦           ¦   ¦       xgui_helpers.lua
+¦   ¦           ¦   ¦       xlib.lua
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   L---sh
+¦   ¦           ¦           chat.lua
+¦   ¦           ¦           customadmin.lua
+¦   ¦           ¦           darkrp.lua
+¦   ¦           ¦           event.lua
+¦   ¦           ¦           fun.lua
+¦   ¦           ¦           teleport.lua
+¦   ¦           ¦           user.lua
+¦   ¦           ¦           util.lua
+¦   ¦           ¦           
+¦   ¦           L---xgui
+¦   ¦               ¦   bans.lua
+¦   ¦               ¦   commands.lua
+¦   ¦               ¦   groups.lua
+¦   ¦               ¦   settings.lua
+¦   ¦               ¦   
+¦   ¦               +---gamemodes
+¦   ¦               ¦       sandbox.lua
+¦   ¦               ¦       
+¦   ¦               L---settings
+¦   ¦                       client.lua
+¦   ¦                       server.lua
+¦   ¦                       
+¦   L---xeon-drm-dll
+¦       L---lua
+¦           L---autorun
+¦               L---client
+¦                       xeon-drm-auth.lua
+¦                       
++---autorun
+¦       l_ingameshop.lua
+¦       
++---entities
+¦   +---ent_igs
+¦   ¦       cl_init.lua
+¦   ¦       shared.lua
+¦   ¦       
+¦   L---npc_igs
+¦           cl_init.lua
+¦           shared.lua
+¦           
++---gamemodes
+¦   +---base
+¦   ¦   +---entities
+¦   ¦   ¦   +---effects
+¦   ¦   ¦   ¦       base.lua
+¦   ¦   ¦   ¦       dof_node.lua
+¦   ¦   ¦   ¦       tooltracer.lua
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   +---entities
+¦   ¦   ¦   ¦   ¦   base_anim.lua
+¦   ¦   ¦   ¦   ¦   base_point.lua
+¦   ¦   ¦   ¦   ¦   env_skypaint.lua
+¦   ¦   ¦   ¦   ¦   gmod_hands.lua
+¦   ¦   ¦   ¦   ¦   npc_tf2_ghost.lua
+¦   ¦   ¦   ¦   ¦   prop_effect.lua
+¦   ¦   ¦   ¦   ¦   ragdoll_motion.lua
+¦   ¦   ¦   ¦   ¦   
+¦   ¦   ¦   ¦   +---base_ai
+¦   ¦   ¦   ¦   ¦       cl_init.lua
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---base_entity
+¦   ¦   ¦   ¦   ¦       cl_init.lua
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   L---base_nextbot
+¦   ¦   ¦   ¦           shared.lua
+¦   ¦   ¦   ¦           
+¦   ¦   ¦   L---weapons
+¦   ¦   ¦       L---weapon_base
+¦   ¦   ¦               ai_translations.lua
+¦   ¦   ¦               cl_init.lua
+¦   ¦   ¦               shared.lua
+¦   ¦   ¦               sh_anim.lua
+¦   ¦   ¦               
+¦   ¦   L---gamemode
+¦   ¦       ¦   animations.lua
+¦   ¦       ¦   cl_deathnotice.lua
+¦   ¦       ¦   cl_hudpickup.lua
+¦   ¦       ¦   cl_init.lua
+¦   ¦       ¦   cl_pickteam.lua
+¦   ¦       ¦   cl_scoreboard.lua
+¦   ¦       ¦   cl_spawnmenu.lua
+¦   ¦       ¦   cl_targetid.lua
+¦   ¦       ¦   cl_voice.lua
+¦   ¦       ¦   gravitygun.lua
+¦   ¦       ¦   obj_player_extend.lua
+¦   ¦       ¦   player_shd.lua
+¦   ¦       ¦   shared.lua
+¦   ¦       ¦   
+¦   ¦       L---player_class
+¦   ¦               player_default.lua
+¦   ¦               taunt_camera.lua
+¦   ¦               
+¦   +---darkrp
+¦   ¦   +---entities
+¦   ¦   ¦   +---entities
+¦   ¦   ¦   ¦   ¦   gmod_cameraprop.lua
+¦   ¦   ¦   ¦   ¦   
+¦   ¦   ¦   ¦   +---darkrp_cheque
+¦   ¦   ¦   ¦   ¦       cl_init.lua
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---darkrp_laws
+¦   ¦   ¦   ¦   ¦       cl_init.lua
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---drug
+¦   ¦   ¦   ¦   ¦       cl_init.lua
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---drug_lab
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---gunlab
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---lab_base
+¦   ¦   ¦   ¦   ¦       cl_init.lua
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---letter
+¦   ¦   ¦   ¦   ¦       cl_init.lua
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---meteor
+¦   ¦   ¦   ¦   ¦       cl_init.lua
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---microwave
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---money_printer
+¦   ¦   ¦   ¦   ¦       cl_init.lua
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---spawned_ammo
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---spawned_food
+¦   ¦   ¦   ¦   ¦       cl_init.lua
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---spawned_money
+¦   ¦   ¦   ¦   ¦       cl_init.lua
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   +---spawned_shipment
+¦   ¦   ¦   ¦   ¦       cl_init.lua
+¦   ¦   ¦   ¦   ¦       shared.lua
+¦   ¦   ¦   ¦   ¦       
+¦   ¦   ¦   ¦   L---spawned_weapon
+¦   ¦   ¦   ¦           cl_init.lua
+¦   ¦   ¦   ¦           shared.lua
+¦   ¦   ¦   ¦           
+¦   ¦   ¦   L---weapons
+¦   ¦   ¦       +---admin_med_kit1
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---admin_med_kit2
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---armor_kit
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---armor_kit_tech
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---arrest_stick
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---door_ram
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---keys
+¦   ¦   ¦       ¦       cl_menu.lua
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---lockpick
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---lockpick_pro
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---med_kit
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---med_kit_onlyme
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pocket
+¦   ¦   ¦       ¦       cl_menu.lua
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---stick_base
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---stunstick
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---unarrest_stick
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---weaponchecker
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---weapon_cs_base2
+¦   ¦   ¦       ¦       shared.lua
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       L---weapon_keypadchecker
+¦   ¦   ¦               cl_init.lua
+¦   ¦   ¦               shared.lua
+¦   ¦   ¦               
+¦   ¦   L---gamemode
+¦   ¦       ¦   cl_init.lua
+¦   ¦       ¦   
+¦   ¦       +---config
+¦   ¦       ¦       addentities.lua
+¦   ¦       ¦       ammotypes.lua
+¦   ¦       ¦       config.lua
+¦   ¦       ¦       jobrelated.lua
+¦   ¦       ¦       
+¦   ¦       +---libraries
+¦   ¦       ¦       disjointset.lua
+¦   ¦       ¦       fn.lua
+¦   ¦       ¦       interfaceloader.lua
+¦   ¦       ¦       modificationloader.lua
+¦   ¦       ¦       sh_cami.lua
+¦   ¦       ¦       simplerr.lua
+¦   ¦       ¦       tablecheck.lua
+¦   ¦       ¦       
+¦   ¦       L---modules
+¦   ¦           +---animations
+¦   ¦           ¦       sh_interface.lua
+¦   ¦           ¦       
+¦   ¦           +---base
+¦   ¦           ¦       cl_drawfunctions.lua
+¦   ¦           ¦       cl_entityvars.lua
+¦   ¦           ¦       cl_fonts.lua
+¦   ¦           ¦       cl_gamemode_functions.lua
+¦   ¦           ¦       cl_interface.lua
+¦   ¦           ¦       cl_jobmodels.lua
+¦   ¦           ¦       cl_util.lua
+¦   ¦           ¦       sh_checkitems.lua
+¦   ¦           ¦       sh_commands.lua
+¦   ¦           ¦       sh_createitems.lua
+¦   ¦           ¦       sh_entityvars.lua
+¦   ¦           ¦       sh_gamemode_functions.lua
+¦   ¦           ¦       sh_interface.lua
+¦   ¦           ¦       sh_playerclass.lua
+¦   ¦           ¦       sh_simplerr.lua
+¦   ¦           ¦       sh_util.lua
+¦   ¦           ¦       
+¦   ¦           +---chat
+¦   ¦           ¦       cl_chat.lua
+¦   ¦           ¦       cl_chatlisteners.lua
+¦   ¦           ¦       cl_interface.lua
+¦   ¦           ¦       sh_chatcommands.lua
+¦   ¦           ¦       sh_interface.lua
+¦   ¦           ¦       
+¦   ¦           +---cppi
+¦   ¦           ¦       sh_cppi.lua
+¦   ¦           ¦       
+¦   ¦           +---deathpov
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       
+¦   ¦           +---dermaskin
+¦   ¦           ¦       cl_dermaskin.lua
+¦   ¦           ¦       
+¦   ¦           +---doorsystem
+¦   ¦           ¦       cl_doors.lua
+¦   ¦           ¦       cl_interface.lua
+¦   ¦           ¦       sh_doors.lua
+¦   ¦           ¦       sh_interface.lua
+¦   ¦           ¦       
+¦   ¦           +---fspectate
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       sh_init.lua
+¦   ¦           ¦       
+¦   ¦           +---hitmenu
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       cl_interface.lua
+¦   ¦           ¦       cl_menu.lua
+¦   ¦           ¦       sh_init.lua
+¦   ¦           ¦       sh_interface.lua
+¦   ¦           ¦       
+¦   ¦           +---hobo
+¦   ¦           ¦       cl_hobo.lua
+¦   ¦           ¦       
+¦   ¦           +---hud
+¦   ¦           ¦       cl_hud.lua
+¦   ¦           ¦       cl_interface.lua
+¦   ¦           ¦       sh_chatcommands.lua
+¦   ¦           ¦       
+¦   ¦           +---hungermod
+¦   ¦           ¦       cl_f4foodtab.lua
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       sh_commands.lua
+¦   ¦           ¦       sh_init.lua
+¦   ¦           ¦       sh_interface.lua
+¦   ¦           ¦       
+¦   ¦           +---jobs
+¦   ¦           ¦       sh_commands.lua
+¦   ¦           ¦       sh_interface.lua
+¦   ¦           ¦       
+¦   ¦           +---language
+¦   ¦           ¦       sh_english.lua
+¦   ¦           ¦       sh_interface.lua
+¦   ¦           ¦       sh_language.lua
+¦   ¦           ¦       
+¦   ¦           +---logging
+¦   ¦           ¦       cl_init.lua
+¦   ¦           ¦       
+¦   ¦           +---medic
+¦   ¦           ¦       sh_init.lua
+¦   ¦           ¦       sh_interface.lua
+¦   ¦           ¦       
+¦   ¦           +---money
+¦   ¦           ¦       sh_commands.lua
+¦   ¦           ¦       sh_interface.lua
+¦   ¦           ¦       sh_money.lua
+¦   ¦           ¦       
+¦   ¦           +---playerscale
+¦   ¦           ¦       cl_playerscale.lua
+¦   ¦           ¦       
+¦   ¦           +---police
+¦   ¦           ¦       sh_init.lua
+¦   ¦           ¦       sh_interface.lua
+¦   ¦           ¦       
+¦   ¦           +---positions
+¦   ¦           ¦       sh_commands.lua
+¦   ¦           ¦       
+¦   ¦           +---voting
+¦   ¦           ¦       cl_voting.lua
+¦   ¦           ¦       sh_chatcommands.lua
+¦   ¦           ¦       
+¦   ¦           L---workarounds
+¦   ¦                   sh_interface.lua
+¦   ¦                   sh_workarounds.lua
+¦   ¦                   
+¦   L---sandbox
+¦       +---entities
+¦       ¦   +---effects
+¦       ¦   ¦       balloon_pop.lua
+¦       ¦   ¦       camera_flash.lua
+¦       ¦   ¦       entity_remove.lua
+¦       ¦   ¦       inflator_magic.lua
+¦       ¦   ¦       lasertracer.lua
+¦       ¦   ¦       phys_freeze.lua
+¦       ¦   ¦       phys_unfreeze.lua
+¦       ¦   ¦       propspawn.lua
+¦       ¦   ¦       selection_indicator.lua
+¦       ¦   ¦       selection_ring.lua
+¦       ¦   ¦       wheel_indicator.lua
+¦       ¦   ¦       
+¦       ¦   +---entities
+¦       ¦   ¦       base_edit.lua
+¦       ¦   ¦       base_gmodentity.lua
+¦       ¦   ¦       edit_fog.lua
+¦       ¦   ¦       edit_sky.lua
+¦       ¦   ¦       edit_sun.lua
+¦       ¦   ¦       gmod_anchor.lua
+¦       ¦   ¦       gmod_balloon.lua
+¦       ¦   ¦       gmod_button.lua
+¦       ¦   ¦       gmod_dynamite.lua
+¦       ¦   ¦       gmod_emitter.lua
+¦       ¦   ¦       gmod_ghost.lua
+¦       ¦   ¦       gmod_hoverball.lua
+¦       ¦   ¦       gmod_lamp.lua
+¦       ¦   ¦       gmod_light.lua
+¦       ¦   ¦       gmod_thruster.lua
+¦       ¦   ¦       gmod_wheel.lua
+¦       ¦   ¦       nb_example.lua
+¦       ¦   ¦       
+¦       ¦   L---weapons
+¦       ¦       ¦   gmod_camera.lua
+¦       ¦       ¦   manhack_welder.lua
+¦       ¦       ¦   
+¦       ¦       L---gmod_tool
+¦       ¦           ¦   cl_init.lua
+¦       ¦           ¦   cl_viewscreen.lua
+¦       ¦           ¦   ghostentity.lua
+¦       ¦           ¦   object.lua
+¦       ¦           ¦   shared.lua
+¦       ¦           ¦   stool.lua
+¦       ¦           ¦   stool_cl.lua
+¦       ¦           ¦   
+¦       ¦           L---stools
+¦       ¦               ¦   axis.lua
+¦       ¦               ¦   balloon.lua
+¦       ¦               ¦   ballsocket.lua
+¦       ¦               ¦   button.lua
+¦       ¦               ¦   camera.lua
+¦       ¦               ¦   creator.lua
+¦       ¦               ¦   duplicator.lua
+¦       ¦               ¦   dynamite.lua
+¦       ¦               ¦   editentity.lua
+¦       ¦               ¦   elastic.lua
+¦       ¦               ¦   emitter.lua
+¦       ¦               ¦   example.lua
+¦       ¦               ¦   eyeposer.lua
+¦       ¦               ¦   faceposer.lua
+¦       ¦               ¦   finger.lua
+¦       ¦               ¦   hoverball.lua
+¦       ¦               ¦   hydraulic.lua
+¦       ¦               ¦   inflator.lua
+¦       ¦               ¦   lamp.lua
+¦       ¦               ¦   leafblower.lua
+¦       ¦               ¦   light.lua
+¦       ¦               ¦   material.lua
+¦       ¦               ¦   motor.lua
+¦       ¦               ¦   muscle.lua
+¦       ¦               ¦   nocollide.lua
+¦       ¦               ¦   paint.lua
+¦       ¦               ¦   physprop.lua
+¦       ¦               ¦   pulley.lua
+¦       ¦               ¦   remover.lua
+¦       ¦               ¦   rope.lua
+¦       ¦               ¦   slider.lua
+¦       ¦               ¦   thruster.lua
+¦       ¦               ¦   trails.lua
+¦       ¦               ¦   weld.lua
+¦       ¦               ¦   wheel.lua
+¦       ¦               ¦   winch.lua
+¦       ¦               ¦   
+¦       ¦               L---duplicator
+¦       ¦                       arming.lua
+¦       ¦                       icon.lua
+¦       ¦                       transport.lua
+¦       ¦                       
+¦       L---gamemode
+¦           ¦   cl_hints.lua
+¦           ¦   cl_init.lua
+¦           ¦   cl_notice.lua
+¦           ¦   cl_search_models.lua
+¦           ¦   cl_spawnmenu.lua
+¦           ¦   cl_worldtips.lua
+¦           ¦   editor_player.lua
+¦           ¦   persistence.lua
+¦           ¦   player_extension.lua
+¦           ¦   save_load.lua
+¦           ¦   shared.lua
+¦           ¦   
+¦           +---gui
+¦           ¦       iconeditor.lua
+¦           ¦       
+¦           +---player_class
+¦           ¦       player_sandbox.lua
+¦           ¦       
+¦           L---spawnmenu
+¦               ¦   contextmenu.lua
+¦               ¦   controlpanel.lua
+¦               ¦   creationmenu.lua
+¦               ¦   spawnmenu.lua
+¦               ¦   toolmenu.lua
+¦               ¦   toolpanel.lua
+¦               ¦   
+¦               +---controls
+¦               ¦       control_presets.lua
+¦               ¦       ctrlcolor.lua
+¦               ¦       ctrllistbox.lua
+¦               ¦       ctrlnumpad.lua
+¦               ¦       manifest.lua
+¦               ¦       preset_editor.lua
+¦               ¦       ropematerial.lua
+¦               ¦       
+¦               L---creationmenu
+¦                   ¦   manifest.lua
+¦                   ¦   
+¦                   L---content
+¦                       ¦   content.lua
+¦                       ¦   contentcontainer.lua
+¦                       ¦   contentheader.lua
+¦                       ¦   contenticon.lua
+¦                       ¦   contentsearch.lua
+¦                       ¦   contentsidebar.lua
+¦                       ¦   contentsidebartoolbox.lua
+¦                       ¦   postprocessicon.lua
+¦                       ¦   
+¦                       L---contenttypes
+¦                               addonprops.lua
+¦                               custom.lua
+¦                               dupes.lua
+¦                               entities.lua
+¦                               gameprops.lua
+¦                               npcs.lua
+¦                               postprocess.lua
+¦                               saves.lua
+¦                               vehicles.lua
+¦                               weapons.lua
+¦                               
++---igs
+¦   ¦   launcher.lua
+¦   ¦   
+¦   +---dependencies
+¦   ¦   ¦   bib.lua
+¦   ¦   ¦   chatprint.lua
+¦   ¦   ¦   lolib.lua
+¦   ¦   ¦   matex.lua
+¦   ¦   ¦   permasents.lua
+¦   ¦   ¦   plurals.lua
+¦   ¦   ¦   scc.lua
+¦   ¦   ¦   
+¦   ¦   L---dash
+¦   ¦           misc.lua
+¦   ¦           nw.lua
+¦   ¦           
+¦   +---extensions
+¦   ¦       badmin.lua
+¦   ¦       bwhitelist.lua
+¦   ¦       darkrp.lua
+¦   ¦       evolve.lua
+¦   ¦       extra.lua
+¦   ¦       fadmin.lua
+¦   ¦       infammo.lua
+¦   ¦       levels.lua
+¦   ¦       pointshop2.lua
+¦   ¦       sam.lua
+¦   ¦       sandbox.lua
+¦   ¦       serverguard.lua
+¦   ¦       shwhitelist.lua
+¦   ¦       ulx.lua
+¦   ¦       xadmin.lua
+¦   ¦       
+¦   +---interface
+¦   ¦   ¦   core.lua
+¦   ¦   ¦   skin.lua
+¦   ¦   ¦   
+¦   ¦   +---activities
+¦   ¦   ¦       inventory.lua
+¦   ¦   ¦       main.lua
+¦   ¦   ¦       profile.lua
+¦   ¦   ¦       purchases.lua
+¦   ¦   ¦       
+¦   ¦   +---vgui
+¦   ¦   ¦       igs_button.lua
+¦   ¦   ¦       igs_frame.lua
+¦   ¦   ¦       igs_group.lua
+¦   ¦   ¦       igs_html.lua
+¦   ¦   ¦       igs_item.lua
+¦   ¦   ¦       igs_iteminfo.lua
+¦   ¦   ¦       igs_multipanel.lua
+¦   ¦   ¦       igs_panels_layout.lua
+¦   ¦   ¦       igs_panels_layout_list.lua
+¦   ¦   ¦       igs_scroll.lua
+¦   ¦   ¦       igs_sidebar.lua
+¦   ¦   ¦       igs_tabbar.lua
+¦   ¦   ¦       igs_table.lua
+¦   ¦   ¦       igs_wmat.lua
+¦   ¦   ¦       
+¦   ¦   L---windows
+¦   ¦           deposit_funds.lua
+¦   ¦           group_content.lua
+¦   ¦           item_info.lua
+¦   ¦           modals.lua
+¦   ¦           
+¦   +---modules
+¦   ¦   +---extra
+¦   ¦   ¦       init_cl.lua
+¦   ¦   ¦       init_sh.lua
+¦   ¦   ¦       new_items_notify_cl.lua
+¦   ¦   ¦       _main.lua
+¦   ¦   ¦       
+¦   ¦   +---inv_log
+¦   ¦   ¦       core_cl.lua
+¦   ¦   ¦       interface_cl.lua
+¦   ¦   ¦       _main.lua
+¦   ¦   ¦       
+¦   ¦   L---pushes
+¦   ¦           _main.lua
+¦   ¦           
+¦   +---network
+¦   ¦       net_cl.lua
+¦   ¦       nw_sh.lua
+¦   ¦       
+¦   +---objects
+¦   ¦       level.lua
+¦   ¦       shop_group.lua
+¦   ¦       shop_item.lua
+¦   ¦       
+¦   +---servers
+¦   ¦       serv_sh.lua
+¦   ¦       
+¦   L---utils
+¦           ut_cl.lua
+¦           ut_sh.lua
+¦           
++---lua
+¦   +---autorun
+¦   ¦   ¦   admin_player.lua
+¦   ¦   ¦   base_npcs.lua
+¦   ¦   ¦   base_vehicles.lua
+¦   ¦   ¦   betasynth_union.lua
+¦   ¦   ¦   bmsvortigaunt.lua
+¦   ¦   ¦   cremator_new.lua
+¦   ¦   ¦   developer_functions.lua
+¦   ¦   ¦   game_hl2.lua
+¦   ¦   ¦   menubar.lua
+¦   ¦   ¦   of2_combine_synths_playermodels.lua
+¦   ¦   ¦   ota_c17.lua
+¦   ¦   ¦   player_models.lua
+¦   ¦   ¦   poison_player.lua
+¦   ¦   ¦   properties.lua
+¦   ¦   ¦   sirgibs_gordonplayermodel.lua
+¦   ¦   ¦   stalkerplayermodel.lua
+¦   ¦   ¦   stalker_union.lua
+¦   ¦   ¦   union_citizen_playermodels.lua
+¦   ¦   ¦   utilities_menu.lua
+¦   ¦   ¦   zombie_fast_new.lua
+¦   ¦   ¦   zombine_playermodel.lua
+¦   ¦   ¦   _override.lua
+¦   ¦   ¦   
+¦   ¦   +---client
+¦   ¦   ¦       changecross.lua
+¦   ¦   ¦       demo_recording.lua
+¦   ¦   ¦       gm_demo.lua
+¦   ¦   ¦       
+¦   ¦   L---properties
+¦   ¦           bodygroups.lua
+¦   ¦           bone_manipulate.lua
+¦   ¦           collisions.lua
+¦   ¦           drive.lua
+¦   ¦           editentity.lua
+¦   ¦           gravity.lua
+¦   ¦           ignite.lua
+¦   ¦           keep_upright.lua
+¦   ¦           kinect_controller.lua
+¦   ¦           npc_scale.lua
+¦   ¦           persist.lua
+¦   ¦           remove.lua
+¦   ¦           skin.lua
+¦   ¦           statue.lua
+¦   ¦           
+¦   +---derma
+¦   ¦       derma.lua
+¦   ¦       derma_animation.lua
+¦   ¦       derma_example.lua
+¦   ¦       derma_gwen.lua
+¦   ¦       derma_menus.lua
+¦   ¦       derma_utils.lua
+¦   ¦       init.lua
+¦   ¦       
+¦   +---drive
+¦   ¦       drive_base.lua
+¦   ¦       drive_noclip.lua
+¦   ¦       drive_sandbox.lua
+¦   ¦       
+¦   +---entities
+¦   ¦       sent_ball.lua
+¦   ¦       widget_arrow.lua
+¦   ¦       widget_axis.lua
+¦   ¦       widget_base.lua
+¦   ¦       widget_bones.lua
+¦   ¦       widget_disc.lua
+¦   ¦       
+¦   +---includes
+¦   ¦   ¦   util.lua
+¦   ¦   ¦   
+¦   ¦   +---extensions
+¦   ¦   ¦   ¦   angle.lua
+¦   ¦   ¦   ¦   coroutine.lua
+¦   ¦   ¦   ¦   debug.lua
+¦   ¦   ¦   ¦   entity.lua
+¦   ¦   ¦   ¦   entity_iter.lua
+¦   ¦   ¦   ¦   ents.lua
+¦   ¦   ¦   ¦   file.lua
+¦   ¦   ¦   ¦   game.lua
+¦   ¦   ¦   ¦   math.lua
+¦   ¦   ¦   ¦   player.lua
+¦   ¦   ¦   ¦   player_auth.lua
+¦   ¦   ¦   ¦   string.lua
+¦   ¦   ¦   ¦   table.lua
+¦   ¦   ¦   ¦   util.lua
+¦   ¦   ¦   ¦   vector.lua
+¦   ¦   ¦   ¦   weapon.lua
+¦   ¦   ¦   ¦   
+¦   ¦   ¦   +---client
+¦   ¦   ¦   ¦   ¦   entity.lua
+¦   ¦   ¦   ¦   ¦   globals.lua
+¦   ¦   ¦   ¦   ¦   panel.lua
+¦   ¦   ¦   ¦   ¦   player.lua
+¦   ¦   ¦   ¦   ¦   render.lua
+¦   ¦   ¦   ¦   ¦   
+¦   ¦   ¦   ¦   L---panel
+¦   ¦   ¦   ¦           animation.lua
+¦   ¦   ¦   ¦           dragdrop.lua
+¦   ¦   ¦   ¦           scriptedpanels.lua
+¦   ¦   ¦   ¦           selections.lua
+¦   ¦   ¦   ¦           
+¦   ¦   ¦   +---math
+¦   ¦   ¦   ¦       ease.lua
+¦   ¦   ¦   ¦       
+¦   ¦   ¦   L---util
+¦   ¦   ¦           worldpicker.lua
+¦   ¦   ¦           
+¦   ¦   +---gui
+¦   ¦   ¦       icon_progress.lua
+¦   ¦   ¦       
+¦   ¦   +---modules
+¦   ¦   ¦       baseclass.lua
+¦   ¦   ¦       cleanup.lua
+¦   ¦   ¦       concommand.lua
+¦   ¦   ¦       constraint.lua
+¦   ¦   ¦       construct.lua
+¦   ¦   ¦       controlpanel.lua
+¦   ¦   ¦       cookie.lua
+¦   ¦   ¦       cvars.lua
+¦   ¦   ¦       draw.lua
+¦   ¦   ¦       drive.lua
+¦   ¦   ¦       duplicator.lua
+¦   ¦   ¦       effects.lua
+¦   ¦   ¦       gamemode.lua
+¦   ¦   ¦       halo.lua
+¦   ¦   ¦       http.lua
+¦   ¦   ¦       killicon.lua
+¦   ¦   ¦       list.lua
+¦   ¦   ¦       markup.lua
+¦   ¦   ¦       matproxy.lua
+¦   ¦   ¦       menubar.lua
+¦   ¦   ¦       notification.lua
+¦   ¦   ¦       numpad.lua
+¦   ¦   ¦       player_manager.lua
+¦   ¦   ¦       presets.lua
+¦   ¦   ¦       properties.lua
+¦   ¦   ¦       saverestore.lua
+¦   ¦   ¦       scripted_ents.lua
+¦   ¦   ¦       search.lua
+¦   ¦   ¦       spawnmenu.lua
+¦   ¦   ¦       team.lua
+¦   ¦   ¦       undo.lua
+¦   ¦   ¦       usermessage.lua
+¦   ¦   ¦       utf8.lua
+¦   ¦   ¦       weapons.lua
+¦   ¦   ¦       widget.lua
+¦   ¦   ¦       
+¦   ¦   L---util
+¦   ¦           client.lua
+¦   ¦           color.lua
+¦   ¦           javascript_util.lua
+¦   ¦           model_database.lua
+¦   ¦           sql.lua
+¦   ¦           tooltips.lua
+¦   ¦           vgui_showlayout.lua
+¦   ¦           workshop_files.lua
+¦   ¦           
+¦   +---matproxy
+¦   ¦       player_color.lua
+¦   ¦       player_weapon_color.lua
+¦   ¦       
+¦   +---postprocess
+¦   ¦       bloom.lua
+¦   ¦       bokeh_dof.lua
+¦   ¦       color_modify.lua
+¦   ¦       dof.lua
+¦   ¦       frame_blend.lua
+¦   ¦       motion_blur.lua
+¦   ¦       overlay.lua
+¦   ¦       sharpen.lua
+¦   ¦       sobel.lua
+¦   ¦       stereoscopy.lua
+¦   ¦       sunbeams.lua
+¦   ¦       super_dof.lua
+¦   ¦       toytown.lua
+¦   ¦       
+¦   L---vgui
+¦           contextbase.lua
+¦           dadjustablemodelpanel.lua
+¦           dalphabar.lua
+¦           dbinder.lua
+¦           dbubblecontainer.lua
+¦           dbutton.lua
+¦           dcategorycollapse.lua
+¦           dcategorylist.lua
+¦           dcheckbox.lua
+¦           dcolorbutton.lua
+¦           dcolorcombo.lua
+¦           dcolorcube.lua
+¦           dcolormixer.lua
+¦           dcolorpalette.lua
+¦           dcolumnsheet.lua
+¦           dcombobox.lua
+¦           ddragbase.lua
+¦           ddrawer.lua
+¦           dentityproperties.lua
+¦           dexpandbutton.lua
+¦           dfilebrowser.lua
+¦           dform.lua
+¦           dframe.lua
+¦           dgrid.lua
+¦           dhorizontaldivider.lua
+¦           dhorizontalscroller.lua
+¦           dhscrollbar.lua
+¦           dhtml.lua
+¦           dhtmlcontrols.lua
+¦           diconbrowser.lua
+¦           diconlayout.lua
+¦           dimage.lua
+¦           dimagebutton.lua
+¦           dkillicon.lua
+¦           dlabel.lua
+¦           dlabeleditable.lua
+¦           dlabelurl.lua
+¦           dlistbox.lua
+¦           dlistlayout.lua
+¦           dlistview.lua
+¦           dlistview_column.lua
+¦           dlistview_line.lua
+¦           dmenu.lua
+¦           dmenubar.lua
+¦           dmenuoption.lua
+¦           dmenuoptioncvar.lua
+¦           dmodelpanel.lua
+¦           dmodelselect.lua
+¦           dmodelselectmulti.lua
+¦           dnotify.lua
+¦           dnumberscratch.lua
+¦           dnumberwang.lua
+¦           dnumpad.lua
+¦           dnumslider.lua
+¦           dpanel.lua
+¦           dpanellist.lua
+¦           dpaneloverlay.lua
+¦           dpanelselect.lua
+¦           dpanpanel.lua
+¦           dprogress.lua
+¦           dproperties.lua
+¦           dpropertysheet.lua
+¦           drgbpicker.lua
+¦           dscrollbargrip.lua
+¦           dscrollpanel.lua
+¦           dshape.lua
+¦           dsizetocontents.lua
+¦           dslider.lua
+¦           dsprite.lua
+¦           dtextentry.lua
+¦           dtilelayout.lua
+¦           dtooltip.lua
+¦           dtree.lua
+¦           dtree_node.lua
+¦           dtree_node_button.lua
+¦           dverticaldivider.lua
+¦           dvscrollbar.lua
+¦           fingerposer.lua
+¦           fingervar.lua
+¦           imagecheckbox.lua
+¦           material.lua
+¦           matselect.lua
+¦           propselect.lua
+¦           prop_boolean.lua
+¦           prop_combo.lua
+¦           prop_entity.lua
+¦           prop_float.lua
+¦           prop_generic.lua
+¦           prop_int.lua
+¦           prop_vectorcolor.lua
+¦           slidebar.lua
+¦           spawnicon.lua
+¦           vgui_panellist.lua
+¦           
+L---Íîâàÿ ïàïêà
+    +---skins
+    ¦       default.lua
+    ¦       
+    L---weapons
+            weapon_fists.lua
+            weapon_flechettegun.lua
+            
